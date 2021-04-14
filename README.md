@@ -12,7 +12,8 @@ Coaches:
 1. Serge Savoie
 2. Thomas Carrier
 -------------------------------------------------------------------------
-# Projecct Components:
+
+# Project Components:
 
 1. Four Smart contracts
 2. Web Application 
