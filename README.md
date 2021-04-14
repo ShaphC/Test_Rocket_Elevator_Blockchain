@@ -1,6 +1,4 @@
-# Rocket_Elevators_Blockchain
-
---- Week 13 of Codeboxx Bootcamp ---
+# Week 13 - Rocket_Elevators_Blockchain - Codeboxx
 
 Members:
 1. Ahsan Ali Syed
