@@ -7,7 +7,7 @@ Members:
 4. Olaolu Adetula
 5. Timothy Wever
 6. Shphan Charles
--------------------------------------------------------------------------
+
 Coaches:
 1. Serge Savoie
 2. Thomas Carrier
