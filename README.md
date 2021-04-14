@@ -14,13 +14,13 @@ Coaches:
 
 -------------------------------------------------------------------------
 
---- Working with Blockchain technology ---
+Working with Blockchain technology:
 
 1. Four Smart contracts
 2. Web Application 
 3. New Database Table 
 
-Smart Contracts:
+-Smart Contracts-
 
 1. Project Office
 
@@ -35,11 +35,11 @@ Smart Contracts:
 
 
 
-Web Application:
+-Web Application-
 
 
 
-New Database Table:
+-New Database Table-
 
 
 -------------------------------------------------------------------------
