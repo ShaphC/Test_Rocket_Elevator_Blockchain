@@ -19,7 +19,7 @@ Coaches:
 2. Web Application 
 3. New Database Table 
 
--Smart Contracts-
+# Smart Contracts:
 
 1. Project Office
 
@@ -34,11 +34,11 @@ Coaches:
 
 
 
--Web Application-
+# Web Application
 
 
 
--New Database Table-
+# New Database Table
 
 
 -------------------------------------------------------------------------
