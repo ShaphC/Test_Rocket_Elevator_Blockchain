@@ -1,6 +1,7 @@
 # Rocket_Elevators_Blockchain
 
-Week 13 of Codeboxx:
+--- Week 13 of Codeboxx Bootcamp ---
+
 Members:
 1. Ahsan Ali Syed
 2. Don D. Nyguen 
@@ -12,3 +13,35 @@ Members:
 Coaches:
 1. Serge Savoie
 2. Thomas Carrier
+
+-------------------------------------------------------------------------
+
+--- Working with Blockchain technology ---
+
+1. Four Smart contracts
+2. Web Application 
+3. New Database Table 
+
+Smart Contracts:
+
+1. Project Office
+
+
+2. Material Provider
+
+
+3. Solution Manufacturing
+
+
+4. Quality, Security and Homologation
+
+
+
+Web Application:
+
+
+
+New Database Table:
+
+
+-------------------------------------------------------------------------
