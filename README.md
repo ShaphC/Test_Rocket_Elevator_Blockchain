@@ -7,14 +7,12 @@ Members:
 4. Olaolu Adetula
 5. Timothy Wever
 6. Shphan Charles
-
+-------------------------------------------------------------------------
 Coaches:
 1. Serge Savoie
 2. Thomas Carrier
-
 -------------------------------------------------------------------------
-
-Working with Blockchain technology:
+--- Projecct Components---
 
 1. Four Smart contracts
 2. Web Application 
