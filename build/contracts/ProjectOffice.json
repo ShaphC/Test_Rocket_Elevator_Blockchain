@@ -31,7 +31,7 @@
           "type": "uint256"
         }
       ],
-      "name": "project",
+      "name": "assign",
       "outputs": [
         {
           "internalType": "uint256",
@@ -44,14 +44,91 @@
       "type": "function"
     },
     {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "Batteries",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "Columns",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "Elevators",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "Floors",
+          "type": "uint256"
+        }
+      ],
+      "name": "neededParts",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getAddresses",
+      "outputs": [
+        {
+          "internalType": "address[10]",
+          "name": "",
+          "type": "address[10]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "constant": true,
       "inputs": [],
       "name": "getProjects",
       "outputs": [
         {
-          "internalType": "address[4]",
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "Controllers",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "Shafts",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "Doors",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "Buttons",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "Displays",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "Pulleys",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ProjectOffice.Parts[]",
           "name": "",
-          "type": "address[4]"
+          "type": "tuple[]"
         }
       ],
       "payable": false,
@@ -59,25 +136,25 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"getProjects\",\"outputs\":[{\"internalType\":\"address[4]\",\"name\":\"\",\"type\":\"address[4]\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"projectId\",\"type\":\"uint256\"}],\"name\":\"project\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"projects\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/scharles/week12/Rocket_Elevators_Blockchain/contracts/ProjectOffice.sol\":\"ProjectOffice\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/scharles/week12/Rocket_Elevators_Blockchain/contracts/ProjectOffice.sol\":{\"keccak256\":\"0x93114cba551a2b5ee2fb17ecd382ca9d8c421c13431f3d04faf1a8ca2e09616b\",\"urls\":[\"bzz-raw://19ccedd83e2c2a5e8d1e60aca5458d0318a79d0f024f0b50246f78a5199cef70\",\"dweb:/ipfs/QmQG9JAvV3SDxK19idy37D4JUXW75E4HrXo8o92Mi9nLtG\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b5061029e806100206000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c8063107046bd1461004657806311d5aaa7146100b4578063dcc60128146100f6575b600080fd5b6100726004803603602081101561005c57600080fd5b810190808035906020019092919050505061013c565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100e0600480360360208110156100ca57600080fd5b810190808035906020019092919050505061016f565b6040518082815260200191505060405180910390f35b6100fe6101c6565b6040518082600460200280838360005b8381101561012957808201518184015260208101905061010e565b5050505090500191505060405180910390f35b6000816004811061014957fe5b016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000336000836004811061017f57fe5b0160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550819050919050565b6101ce610247565b600060048060200260405190810160405280929190826004801561023d576020028201915b8160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190600101908083116101f3575b5050505050905090565b604051806080016040528060049060208202803883398082019150509050509056fea265627a7a72315820b942e590f7ea19d3473f867e7bb9d9970a202e92e7b28a184086a334dcdd965864736f6c63430005100032",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c8063107046bd1461004657806311d5aaa7146100b4578063dcc60128146100f6575b600080fd5b6100726004803603602081101561005c57600080fd5b810190808035906020019092919050505061013c565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100e0600480360360208110156100ca57600080fd5b810190808035906020019092919050505061016f565b6040518082815260200191505060405180910390f35b6100fe6101c6565b6040518082600460200280838360005b8381101561012957808201518184015260208101905061010e565b5050505090500191505060405180910390f35b6000816004811061014957fe5b016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000336000836004811061017f57fe5b0160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550819050919050565b6101ce610247565b600060048060200260405190810160405280929190826004801561023d576020028201915b8160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190600101908083116101f3575b5050505050905090565b604051806080016040528060049060208202803883398082019150509050509056fea265627a7a72315820b942e590f7ea19d3473f867e7bb9d9970a202e92e7b28a184086a334dcdd965864736f6c63430005100032",
-  "sourceMap": "66:357:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;66:357:1;;;;;;;",
-  "deployedSourceMap": "66:357:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;66:357:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;93:26;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;93:26:1;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;124:173;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;124:173:1;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;332:89;;;:::i;:::-;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;332:89:1;;;;;;;;;;;;;;;;93:26;;;;;;;;;;;;;;;;;;;;;;;:::o;124:173::-;173:4;259:10;237:8;246:9;237:19;;;;;;;;;:32;;;;;;;;;;;;;;;;;;283:9;276:16;;124:173;;;:::o;332:89::-;376:17;;:::i;:::-;408:8;401:15;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;332:89;:::o;66:357::-;;;;;;;;;;;29:2:-1;21:6;17:15;117:4;105:10;97:6;88:34;148:4;140:6;136:17;126:27;;0:157;66:357:1;;;;:::o",
-  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\ncontract ProjectOffice {\n  address[4] public projects;\n\n  function project(uint projectId) public returns (uint) {\n    // require(projectId >= 0 && projectId <= 15);\n\n    projects[projectId] = msg.sender;\n\n    return projectId;\n  }\n  \n  // Retrieving the adopters\n  function getProjects() public view returns (address[4] memory) {\n    return projects;\n  }\n}\n",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"projectId\",\"type\":\"uint256\"}],\"name\":\"assign\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getAddresses\",\"outputs\":[{\"internalType\":\"address[10]\",\"name\":\"\",\"type\":\"address[10]\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getProjects\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"Controllers\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"Shafts\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"Doors\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"Buttons\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"Displays\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"Pulleys\",\"type\":\"uint256\"}],\"internalType\":\"struct ProjectOffice.Parts[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"Batteries\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"Columns\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"Elevators\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"Floors\",\"type\":\"uint256\"}],\"name\":\"neededParts\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"projects\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/scharles/week12/Rocket_Elevators_Blockchain/contracts/ProjectOffice.sol\":\"ProjectOffice\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/scharles/week12/Rocket_Elevators_Blockchain/contracts/ProjectOffice.sol\":{\"keccak256\":\"0x8fccacdd5f8e26873d097fe4acb38952992da95b892833076392085cf8d50c6e\",\"urls\":[\"bzz-raw://24f93b2f42294758b4a58d95d43852be7a4af7d0a5b85491bbfa49861d25b5eb\",\"dweb:/ipfs/QmUiD3iLHWMWNgQqHeJ1DbdyjPc2DddE6238tFLfuwkBfZ\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610798806100206000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c8063107046bd1461005c5780634157a6d51461008c5780634c081138146100a8578063a39fac12146100d8578063dcc60128146100f6575b600080fd5b61007660048036036100719190810190610400565b610114565b6040516100839190610628565b60405180910390f35b6100a660048036036100a19190810190610429565b610147565b005b6100c260048036036100bd9190810190610400565b610205565b6040516100cf9190610681565b60405180910390f35b6100e0610276565b6040516100ed9190610643565b60405180910390f35b6100fe6102f7565b60405161010b919061065f565b60405180910390f35b600181600a811061012157fe5b016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b61014f610392565b8481600001818152505082816020018181525050838284020281604001818152505081830281606001818152505082816080018181525050828160a001818152505060008190806001815401808255809150509060018203906000526020600020906006020160009091929091909150600082015181600001556020820151816001015560408201518160020155606082015181600301556080820151816004015560a082015181600501555050505050505050565b6000808210158015610218575060098211155b61022157600080fd5b33600183600a811061022f57fe5b0160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550819050919050565b61027e6103c8565b6001600a806020026040519081016040528092919082600a80156102ed576020028201915b8160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190600101908083116102a3575b5050505050905090565b60606000805480602002602001604051908101604052809291908181526020016000905b8282101561038957838290600052602060002090600602016040518060c001604052908160008201548152602001600182015481526020016002820154815260200160038201548152602001600482015481526020016005820154815250508152602001906001019061031b565b50505050905090565b6040518060c001604052806000815260200160008152602001600081526020016000815260200160008152602001600081525090565b604051806101400160405280600a90602082028038833980820191505090505090565b6000813590506103fa8161073e565b92915050565b60006020828403121561041257600080fd5b6000610420848285016103eb565b91505092915050565b6000806000806080858703121561043f57600080fd5b600061044d878288016103eb565b945050602061045e878288016103eb565b935050604061046f878288016103eb565b9250506060610480878288016103eb565b91505092959194509250565b600061049883836104bc565b60208301905092915050565b60006104b0838361058f565b60c08301905092915050565b6104c581610702565b82525050565b6104d481610702565b82525050565b6104e3816106b6565b6104ed81846106e6565b92506104f88261069c565b8060005b83811015610529578151610510878261048c565b965061051b836106cc565b9250506001810190506104fc565b505050505050565b600061053c826106c1565b61054681856106f1565b9350610551836106a6565b8060005b8381101561058257815161056988826104a4565b9750610574836106d9565b925050600181019050610555565b5085935050505092915050565b60c0820160008201516105a5600085018261060a565b5060208201516105b8602085018261060a565b5060408201516105cb604085018261060a565b5060608201516105de606085018261060a565b5060808201516105f1608085018261060a565b5060a082015161060460a085018261060a565b50505050565b61061381610734565b82525050565b61062281610734565b82525050565b600060208201905061063d60008301846104cb565b92915050565b60006101408201905061065960008301846104da565b92915050565b600060208201905081810360008301526106798184610531565b905092915050565b60006020820190506106966000830184610619565b92915050565b6000819050919050565b6000819050602082019050919050565b6000600a9050919050565b600081519050919050565b6000602082019050919050565b6000602082019050919050565b600081905092915050565b600082825260208201905092915050565b600061070d82610714565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b61074781610734565b811461075257600080fd5b5056fea365627a7a72315820e4b5962ba7e592bad17cb5966db39b8c1be5a76b9e02aca547a1d0d9e5df68e26c6578706572696d656e74616cf564736f6c63430005100040",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100575760003560e01c8063107046bd1461005c5780634157a6d51461008c5780634c081138146100a8578063a39fac12146100d8578063dcc60128146100f6575b600080fd5b61007660048036036100719190810190610400565b610114565b6040516100839190610628565b60405180910390f35b6100a660048036036100a19190810190610429565b610147565b005b6100c260048036036100bd9190810190610400565b610205565b6040516100cf9190610681565b60405180910390f35b6100e0610276565b6040516100ed9190610643565b60405180910390f35b6100fe6102f7565b60405161010b919061065f565b60405180910390f35b600181600a811061012157fe5b016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b61014f610392565b8481600001818152505082816020018181525050838284020281604001818152505081830281606001818152505082816080018181525050828160a001818152505060008190806001815401808255809150509060018203906000526020600020906006020160009091929091909150600082015181600001556020820151816001015560408201518160020155606082015181600301556080820151816004015560a082015181600501555050505050505050565b6000808210158015610218575060098211155b61022157600080fd5b33600183600a811061022f57fe5b0160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550819050919050565b61027e6103c8565b6001600a806020026040519081016040528092919082600a80156102ed576020028201915b8160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190600101908083116102a3575b5050505050905090565b60606000805480602002602001604051908101604052809291908181526020016000905b8282101561038957838290600052602060002090600602016040518060c001604052908160008201548152602001600182015481526020016002820154815260200160038201548152602001600482015481526020016005820154815250508152602001906001019061031b565b50505050905090565b6040518060c001604052806000815260200160008152602001600081526020016000815260200160008152602001600081525090565b604051806101400160405280600a90602082028038833980820191505090505090565b6000813590506103fa8161073e565b92915050565b60006020828403121561041257600080fd5b6000610420848285016103eb565b91505092915050565b6000806000806080858703121561043f57600080fd5b600061044d878288016103eb565b945050602061045e878288016103eb565b935050604061046f878288016103eb565b9250506060610480878288016103eb565b91505092959194509250565b600061049883836104bc565b60208301905092915050565b60006104b0838361058f565b60c08301905092915050565b6104c581610702565b82525050565b6104d481610702565b82525050565b6104e3816106b6565b6104ed81846106e6565b92506104f88261069c565b8060005b83811015610529578151610510878261048c565b965061051b836106cc565b9250506001810190506104fc565b505050505050565b600061053c826106c1565b61054681856106f1565b9350610551836106a6565b8060005b8381101561058257815161056988826104a4565b9750610574836106d9565b925050600181019050610555565b5085935050505092915050565b60c0820160008201516105a5600085018261060a565b5060208201516105b8602085018261060a565b5060408201516105cb604085018261060a565b5060608201516105de606085018261060a565b5060808201516105f1608085018261060a565b5060a082015161060460a085018261060a565b50505050565b61061381610734565b82525050565b61062281610734565b82525050565b600060208201905061063d60008301846104cb565b92915050565b60006101408201905061065960008301846104da565b92915050565b600060208201905081810360008301526106798184610531565b905092915050565b60006020820190506106966000830184610619565b92915050565b6000819050919050565b6000819050602082019050919050565b6000600a9050919050565b600081519050919050565b6000602082019050919050565b6000602082019050919050565b600081905092915050565b600082825260208201905092915050565b600061070d82610714565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b61074781610734565b811461075257600080fd5b5056fea365627a7a72315820e4b5962ba7e592bad17cb5966db39b8c1be5a76b9e02aca547a1d0d9e5df68e26c6578706572696d656e74616cf564736f6c63430005100040",
+  "sourceMap": "100:2245:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;100:2245:1;;;;;;;",
+  "deployedSourceMap": "100:2245:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;100:2245:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;201:27;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;1585:352;;;;;;;;;;;;;;;;:::i;:::-;;333:174;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;1941:91;;;:::i;:::-;;;;;;;;;;;;;;;;2036:83;;;:::i;:::-;;;;;;;;;;;;;;;;201:27;;;;;;;;;;;;;;;;;;;;;;;:::o;1585:352::-;1692:14;;:::i;:::-;1730:9;1714:1;:13;;:25;;;;;1758:9;1747:1;:8;;:20;;;;;1806:7;1797:6;1785:9;:18;:28;1775:1;:7;;:38;;;;;1845:6;1833:9;:18;1821:1;:9;;:30;;;;;1872:9;1859:1;:10;;:22;;;;;1901:9;1889:1;:9;;:21;;;;;1919:5;1930:1;1919:13;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1919:13:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1585:352;;;;;:::o;333:174::-;381:4;416:1;403:9;:14;;:32;;;;;434:1;421:9;:14;;403:32;395:41;;;;;;467:10;445:8;454:9;445:19;;;;;;;;;:32;;;;;;;;;;;;;;;;;;493:9;486:16;;333:174;;;:::o;1941:91::-;1986:18;;:::i;:::-;2019:8;2012:15;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1941:91;:::o;2036:83::-;2080:14;2109:5;2102:12;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2036:83;:::o;100:2245::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;29:2:-1;21:6;17:15;117:4;105:10;97:6;88:34;148:4;140:6;136:17;126:27;;0:157;100:2245:1;;;;:::o;5:130:-1:-;;85:6;72:20;63:29;;97:33;124:5;97:33;;;57:78;;;;;142:241;;246:2;234:9;225:7;221:23;217:32;214:2;;;262:1;259;252:12;214:2;297:1;314:53;359:7;350:6;339:9;335:22;314:53;;;304:63;;276:97;208:175;;;;;390:617;;;;;545:3;533:9;524:7;520:23;516:33;513:2;;;562:1;559;552:12;513:2;597:1;614:53;659:7;650:6;639:9;635:22;614:53;;;604:63;;576:97;704:2;722:53;767:7;758:6;747:9;743:22;722:53;;;712:63;;683:98;812:2;830:53;875:7;866:6;855:9;851:22;830:53;;;820:63;;791:98;920:2;938:53;983:7;974:6;963:9;959:22;938:53;;;928:63;;899:98;507:500;;;;;;;;1015:173;;1102:46;1144:3;1136:6;1102:46;;;1177:4;1172:3;1168:14;1154:28;;1095:93;;;;;1197:245;;1318:84;1398:3;1390:6;1318:84;;;1431:4;1426:3;1422:14;1408:28;;1311:131;;;;;1450:103;1523:24;1541:5;1523:24;;;1518:3;1511:37;1505:48;;;1560:113;1643:24;1661:5;1643:24;;;1638:3;1631:37;1625:48;;;1715:666;1850:53;1897:5;1850:53;;;1916:85;1994:6;1989:3;1916:85;;;1909:92;;2022:55;2071:5;2022:55;;;2097:7;2125:1;2110:259;2135:6;2132:1;2129:13;2110:259;;;2202:6;2196:13;2223:63;2282:3;2267:13;2223:63;;;2216:70;;2303:59;2355:6;2303:59;;;2293:69;;2167:202;2157:1;2154;2150:9;2145:14;;2110:259;;;2114:14;1829:552;;;;;;2458:826;;2637:71;2702:5;2637:71;;;2721:103;2817:6;2812:3;2721:103;;;2714:110;;2845:73;2912:5;2845:73;;;2938:7;2966:1;2951:311;2976:6;2973:1;2970:13;2951:311;;;3043:6;3037:13;3064:97;3157:3;3142:13;3064:97;;;3057:104;;3178:77;3248:6;3178:77;;;3168:87;;3008:254;2998:1;2995;2991:9;2986:14;;2951:311;;;2955:14;3275:3;3268:10;;2616:668;;;;;;;;3355:1090;3476:4;3471:3;3467:14;3566:4;3559:5;3555:16;3549:23;3578:63;3635:4;3630:3;3626:14;3612:12;3578:63;;;3496:151;3722:4;3715:5;3711:16;3705:23;3734:63;3791:4;3786:3;3782:14;3768:12;3734:63;;;3657:146;3877:4;3870:5;3866:16;3860:23;3889:63;3946:4;3941:3;3937:14;3923:12;3889:63;;;3813:145;4034:4;4027:5;4023:16;4017:23;4046:63;4103:4;4098:3;4094:14;4080:12;4046:63;;;3968:147;4192:4;4185:5;4181:16;4175:23;4204:63;4261:4;4256:3;4252:14;4238:12;4204:63;;;4125:148;4349:4;4342:5;4338:16;4332:23;4361:63;4418:4;4413:3;4409:14;4395:12;4361:63;;;4283:147;3449:996;;;;4452:103;4525:24;4543:5;4525:24;;;4520:3;4513:37;4507:48;;;4562:113;4645:24;4663:5;4645:24;;;4640:3;4633:37;4627:48;;;4682:213;;4800:2;4789:9;4785:18;4777:26;;4814:71;4882:1;4871:9;4867:17;4858:6;4814:71;;;4771:124;;;;;4902:310;;5068:3;5057:9;5053:19;5045:27;;5083:119;5199:1;5188:9;5184:17;5175:6;5083:119;;;5039:173;;;;;5219:429;;5421:2;5410:9;5406:18;5398:26;;5471:9;5465:4;5461:20;5457:1;5446:9;5442:17;5435:47;5496:142;5633:4;5624:6;5496:142;;;5488:150;;5392:256;;;;;5655:213;;5773:2;5762:9;5758:18;5750:26;;5787:71;5855:1;5844:9;5840:17;5831:6;5787:71;;;5744:124;;;;;5875:98;;5960:3;5952:11;;5946:27;;;;5980:168;;6083:3;6075:11;;6121:4;6116:3;6112:14;6104:22;;6069:79;;;;6155:109;;6250:4;6240:14;;6228:36;;;;6271:154;;6397:5;6391:12;6381:22;;6362:63;;;;6432:107;;6529:4;6524:3;6520:14;6512:22;;6506:33;;;;6546:125;;6661:4;6656:3;6652:14;6644:22;;6638:33;;;;6679:141;;6811:3;6796:18;;6789:31;;;;;6829:195;;6976:6;6971:3;6964:19;7013:4;7008:3;7004:14;6989:29;;6957:67;;;;;7032:91;;7094:24;7112:5;7094:24;;;7083:35;;7077:46;;;;7130:121;;7203:42;7196:5;7192:54;7181:65;;7175:76;;;;7258:72;;7320:5;7309:16;;7303:27;;;;7337:117;7406:24;7424:5;7406:24;;;7399:5;7396:35;7386:2;;7445:1;7442;7435:12;7386:2;7380:74;",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\npragma experimental ABIEncoderV2;\n\ncontract ProjectOffice {\n  Parts[] parts;\n  // address public projects;\n  // address public owner;\n  address[10] public projects;\n\n  // event for EVM logging\n  // event OwnerSet(address indexed oldOwner, address indexed newOwner);\n  function assign(uint projectId) public returns (uint) {\n      require(projectId >= 0 && projectId <= 9);\n\n      projects[projectId] = msg.sender;\n\n      return projectId;\n  }\n\n  struct Parts {\n    uint256 Controllers;\n    uint256 Shafts;\n    uint256 Doors;\n    uint256 Buttons;\n    uint256 Displays;\n    uint256 Pulleys;\n  }\n\n  // event DataStored(uint256 Controllers);\n\n  // modifier isOwner() {\n  //       // If the first argument of 'require' evaluates to 'false', execution terminates and all\n  //       // changes to the state and to Ether balances are reverted.\n  //       // This used to consume all gas in old EVM versions, but not anymore.\n  //       // It is often a good idea to use 'require' to check if functions are called correctly.\n  //       // As a second argument, you can also provide an explanation about what went wrong.\n  //       require(msg.sender == owner, \"Caller is not owner\");\n  //       _;\n  // }\n\n  // constructor() {\n  //     owner = msg.sender; // 'msg.sender' is sender of current call, contract deployer for a constructor\n  //     emit OwnerSet(address(0), owner);\n  // }\n\n  // function changeOwner(address newOwner) public isOwner {\n  //       emit OwnerSet(owner, newOwner);\n  //       owner = newOwner;\n  // }\n\n  function neededParts(uint256 Batteries, uint256 Columns, uint256 Elevators, uint256 Floors) public {\n      Parts memory p;\n      p.Controllers = Batteries;\n      p.Shafts = Elevators;\n      p.Doors = Elevators * Floors * Columns;\n      p.Buttons = Elevators * Floors;\n      p.Displays = Elevators;\n      p.Pulleys = Elevators;\n\n      parts.push(p);\n  }\n\n  function getAddresses() public view returns (address[10] memory) {\n    return projects;\n  }\n\n  function getProjects() public view returns (Parts[] memory) {\n    return parts;\n  }\n\n  // function project(uint projectId) public returns (uint) {\n  //   // require(projectId >= 0 && projectId <= 15);\n\n  //   projects[projectId] = msg.sender;\n\n  //   return projectId;\n  // }\n  \n  // Retrieving the adopters\n}\n",
   "sourcePath": "/home/scharles/week12/Rocket_Elevators_Blockchain/contracts/ProjectOffice.sol",
   "ast": {
     "absolutePath": "/home/scharles/week12/Rocket_Elevators_Blockchain/contracts/ProjectOffice.sol",
     "exportedSymbols": {
       "ProjectOffice": [
-        34
+        134
       ]
     },
-    "id": 35,
+    "id": 135,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2,
+        "id": 3,
         "literals": [
           "solidity",
           ">=",
@@ -91,67 +168,114 @@
         "src": "32:32:1"
       },
       {
+        "id": 4,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "65:33:1"
+      },
+      {
         "baseContracts": [],
         "contractDependencies": [],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 34,
+        "id": 134,
         "linearizedBaseContracts": [
-          34
+          134
         ],
         "name": "ProjectOffice",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 6,
-            "name": "projects",
+            "id": 7,
+            "name": "parts",
             "nodeType": "VariableDeclaration",
-            "scope": 34,
-            "src": "93:26:1",
+            "scope": 134,
+            "src": "127:13:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_address_$4_storage",
-              "typeString": "address[4]"
+              "typeIdentifier": "t_array$_t_struct$_Parts_$51_storage_$dyn_storage",
+              "typeString": "struct ProjectOffice.Parts[]"
             },
             "typeName": {
               "baseType": {
-                "id": 3,
+                "contractScope": null,
+                "id": 5,
+                "name": "Parts",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 51,
+                "src": "127:5:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Parts_$51_storage_ptr",
+                  "typeString": "struct ProjectOffice.Parts"
+                }
+              },
+              "id": 6,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "127:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_Parts_$51_storage_$dyn_storage_ptr",
+                "typeString": "struct ProjectOffice.Parts[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 11,
+            "name": "projects",
+            "nodeType": "VariableDeclaration",
+            "scope": 134,
+            "src": "201:27:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_address_$10_storage",
+              "typeString": "address[10]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 8,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "93:7:1",
+                "src": "201:7:1",
                 "stateMutability": "nonpayable",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
-              "id": 5,
+              "id": 10,
               "length": {
                 "argumentTypes": null,
-                "hexValue": "34",
-                "id": 4,
+                "hexValue": "3130",
+                "id": 9,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
                 "kind": "number",
                 "lValueRequested": false,
                 "nodeType": "Literal",
-                "src": "101:1:1",
+                "src": "209:2:1",
                 "subdenomination": null,
                 "typeDescriptions": {
-                  "typeIdentifier": "t_rational_4_by_1",
-                  "typeString": "int_const 4"
+                  "typeIdentifier": "t_rational_10_by_1",
+                  "typeString": "int_const 10"
                 },
-                "value": "4"
+                "value": "10"
               },
               "nodeType": "ArrayTypeName",
-              "src": "93:10:1",
+              "src": "201:11:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_address_$4_storage_ptr",
-                "typeString": "address[4]"
+                "typeIdentifier": "t_array$_t_address_$10_storage_ptr",
+                "typeString": "address[10]"
               }
             },
             "value": null,
@@ -159,14 +283,177 @@
           },
           {
             "body": {
-              "id": 22,
+              "id": 37,
               "nodeType": "Block",
-              "src": "179:118:1",
+              "src": "387:120:1",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 18,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "id": 25,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "id": 21,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "argumentTypes": null,
+                            "id": 19,
+                            "name": "projectId",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 13,
+                            "src": "403:9:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": ">=",
+                          "rightExpression": {
+                            "argumentTypes": null,
+                            "hexValue": "30",
+                            "id": 20,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "416:1:1",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0"
+                          },
+                          "src": "403:14:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "&&",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "id": 24,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "argumentTypes": null,
+                            "id": 22,
+                            "name": "projectId",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 13,
+                            "src": "421:9:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "<=",
+                          "rightExpression": {
+                            "argumentTypes": null,
+                            "hexValue": "39",
+                            "id": 23,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "434:1:1",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_9_by_1",
+                              "typeString": "int_const 9"
+                            },
+                            "value": "9"
+                          },
+                          "src": "421:14:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "src": "403:32:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 18,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        152,
+                        153
+                      ],
+                      "referencedDeclaration": 152,
+                      "src": "395:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 26,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "395:41:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 27,
+                  "nodeType": "ExpressionStatement",
+                  "src": "395:41:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 33,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -175,26 +462,26 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 13,
+                        "id": 28,
                         "name": "projects",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 6,
-                        "src": "237:8:1",
+                        "referencedDeclaration": 11,
+                        "src": "445:8:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_address_$4_storage",
-                          "typeString": "address[4] storage ref"
+                          "typeIdentifier": "t_array$_t_address_$10_storage",
+                          "typeString": "address[10] storage ref"
                         }
                       },
-                      "id": 15,
+                      "id": 30,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 14,
+                        "id": 29,
                         "name": "projectId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8,
-                        "src": "246:9:1",
+                        "referencedDeclaration": 13,
+                        "src": "454:9:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -205,7 +492,7 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "237:19:1",
+                      "src": "445:19:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -217,18 +504,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 16,
+                        "id": 31,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 49,
-                        "src": "259:3:1",
+                        "referencedDeclaration": 149,
+                        "src": "467:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 17,
+                      "id": 32,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -236,61 +523,61 @@
                       "memberName": "sender",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "259:10:1",
+                      "src": "467:10:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address_payable",
                         "typeString": "address payable"
                       }
                     },
-                    "src": "237:32:1",
+                    "src": "445:32:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 19,
+                  "id": 34,
                   "nodeType": "ExpressionStatement",
-                  "src": "237:32:1"
+                  "src": "445:32:1"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 20,
+                    "id": 35,
                     "name": "projectId",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 8,
-                    "src": "283:9:1",
+                    "referencedDeclaration": 13,
+                    "src": "493:9:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 12,
-                  "id": 21,
+                  "functionReturnParameters": 17,
+                  "id": 36,
                   "nodeType": "Return",
-                  "src": "276:16:1"
+                  "src": "486:16:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 23,
+            "id": 38,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
-            "name": "project",
+            "name": "assign",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 9,
+              "id": 14,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8,
+                  "id": 13,
                   "name": "projectId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 23,
-                  "src": "141:14:1",
+                  "scope": 38,
+                  "src": "349:14:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -298,10 +585,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 7,
+                    "id": 12,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "141:4:1",
+                    "src": "349:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -311,19 +598,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "140:16:1"
+              "src": "348:16:1"
             },
             "returnParameters": {
-              "id": 12,
+              "id": 17,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 11,
+                  "id": 16,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 23,
-                  "src": "173:4:1",
+                  "scope": 38,
+                  "src": "381:4:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -331,10 +618,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 10,
+                    "id": 15,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "173:4:1",
+                    "src": "381:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -344,134 +631,1107 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "172:6:1"
+              "src": "380:6:1"
             },
-            "scope": 34,
-            "src": "124:173:1",
+            "scope": 134,
+            "src": "333:174:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "ProjectOffice.Parts",
+            "id": 51,
+            "members": [
+              {
+                "constant": false,
+                "id": 40,
+                "name": "Controllers",
+                "nodeType": "VariableDeclaration",
+                "scope": 51,
+                "src": "530:19:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 39,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "530:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 42,
+                "name": "Shafts",
+                "nodeType": "VariableDeclaration",
+                "scope": 51,
+                "src": "555:14:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 41,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "555:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44,
+                "name": "Doors",
+                "nodeType": "VariableDeclaration",
+                "scope": 51,
+                "src": "575:13:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 43,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "575:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 46,
+                "name": "Buttons",
+                "nodeType": "VariableDeclaration",
+                "scope": 51,
+                "src": "594:15:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 45,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "594:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 48,
+                "name": "Displays",
+                "nodeType": "VariableDeclaration",
+                "scope": 51,
+                "src": "615:16:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 47,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "615:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 50,
+                "name": "Pulleys",
+                "nodeType": "VariableDeclaration",
+                "scope": 51,
+                "src": "637:15:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 49,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "637:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Parts",
+            "nodeType": "StructDefinition",
+            "scope": 134,
+            "src": "511:146:1",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 113,
+              "nodeType": "Block",
+              "src": "1684:253:1",
+              "statements": [
+                {
+                  "assignments": [
+                    63
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 63,
+                      "name": "p",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 113,
+                      "src": "1692:14:1",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Parts_$51_memory_ptr",
+                        "typeString": "struct ProjectOffice.Parts"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 62,
+                        "name": "Parts",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 51,
+                        "src": "1692:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Parts_$51_storage_ptr",
+                          "typeString": "struct ProjectOffice.Parts"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 64,
+                  "initialValue": null,
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1692:14:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 69,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 65,
+                        "name": "p",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 63,
+                        "src": "1714:1:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Parts_$51_memory_ptr",
+                          "typeString": "struct ProjectOffice.Parts memory"
+                        }
+                      },
+                      "id": 67,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "Controllers",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 40,
+                      "src": "1714:13:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 68,
+                      "name": "Batteries",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 53,
+                      "src": "1730:9:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1714:25:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 70,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1714:25:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 75,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 71,
+                        "name": "p",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 63,
+                        "src": "1747:1:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Parts_$51_memory_ptr",
+                          "typeString": "struct ProjectOffice.Parts memory"
+                        }
+                      },
+                      "id": 73,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "Shafts",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 42,
+                      "src": "1747:8:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 74,
+                      "name": "Elevators",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 57,
+                      "src": "1758:9:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1747:20:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 76,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1747:20:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 85,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 77,
+                        "name": "p",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 63,
+                        "src": "1775:1:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Parts_$51_memory_ptr",
+                          "typeString": "struct ProjectOffice.Parts memory"
+                        }
+                      },
+                      "id": 79,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "Doors",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 44,
+                      "src": "1775:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "commonType": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "id": 84,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "leftExpression": {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 82,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 80,
+                          "name": "Elevators",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 57,
+                          "src": "1785:9:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "*",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "id": 81,
+                          "name": "Floors",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 59,
+                          "src": "1797:6:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "src": "1785:18:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "nodeType": "BinaryOperation",
+                      "operator": "*",
+                      "rightExpression": {
+                        "argumentTypes": null,
+                        "id": 83,
+                        "name": "Columns",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 55,
+                        "src": "1806:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "src": "1785:28:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1775:38:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 86,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1775:38:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 93,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 87,
+                        "name": "p",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 63,
+                        "src": "1821:1:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Parts_$51_memory_ptr",
+                          "typeString": "struct ProjectOffice.Parts memory"
+                        }
+                      },
+                      "id": 89,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "Buttons",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 46,
+                      "src": "1821:9:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "commonType": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "id": 92,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "leftExpression": {
+                        "argumentTypes": null,
+                        "id": 90,
+                        "name": "Elevators",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 57,
+                        "src": "1833:9:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "nodeType": "BinaryOperation",
+                      "operator": "*",
+                      "rightExpression": {
+                        "argumentTypes": null,
+                        "id": 91,
+                        "name": "Floors",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 59,
+                        "src": "1845:6:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "src": "1833:18:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1821:30:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 94,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1821:30:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 99,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 95,
+                        "name": "p",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 63,
+                        "src": "1859:1:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Parts_$51_memory_ptr",
+                          "typeString": "struct ProjectOffice.Parts memory"
+                        }
+                      },
+                      "id": 97,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "Displays",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 48,
+                      "src": "1859:10:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 98,
+                      "name": "Elevators",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 57,
+                      "src": "1872:9:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1859:22:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 100,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1859:22:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 105,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 101,
+                        "name": "p",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 63,
+                        "src": "1889:1:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Parts_$51_memory_ptr",
+                          "typeString": "struct ProjectOffice.Parts memory"
+                        }
+                      },
+                      "id": 103,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "Pulleys",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 50,
+                      "src": "1889:9:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 104,
+                      "name": "Elevators",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 57,
+                      "src": "1901:9:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1889:21:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 106,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1889:21:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 110,
+                        "name": "p",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 63,
+                        "src": "1930:1:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Parts_$51_memory_ptr",
+                          "typeString": "struct ProjectOffice.Parts memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_Parts_$51_memory_ptr",
+                          "typeString": "struct ProjectOffice.Parts memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 107,
+                        "name": "parts",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7,
+                        "src": "1919:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_Parts_$51_storage_$dyn_storage",
+                          "typeString": "struct ProjectOffice.Parts storage ref[] storage ref"
+                        }
+                      },
+                      "id": 109,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1919:10:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Parts_$51_storage_$returns$_t_uint256_$",
+                        "typeString": "function (struct ProjectOffice.Parts storage ref) returns (uint256)"
+                      }
+                    },
+                    "id": 111,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1919:13:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 112,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1919:13:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 114,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "neededParts",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 60,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 53,
+                  "name": "Batteries",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 114,
+                  "src": "1606:17:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 52,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1606:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 55,
+                  "name": "Columns",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 114,
+                  "src": "1625:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 54,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1625:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 57,
+                  "name": "Elevators",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 114,
+                  "src": "1642:17:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 56,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1642:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 59,
+                  "name": "Floors",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 114,
+                  "src": "1661:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 58,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1661:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1605:71:1"
+            },
+            "returnParameters": {
+              "id": 61,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1684:0:1"
+            },
+            "scope": 134,
+            "src": "1585:352:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 32,
+              "id": 123,
               "nodeType": "Block",
-              "src": "395:26:1",
+              "src": "2006:26:1",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 30,
+                    "id": 121,
                     "name": "projects",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 6,
-                    "src": "408:8:1",
+                    "referencedDeclaration": 11,
+                    "src": "2019:8:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_address_$4_storage",
-                      "typeString": "address[4] storage ref"
+                      "typeIdentifier": "t_array$_t_address_$10_storage",
+                      "typeString": "address[10] storage ref"
                     }
                   },
-                  "functionReturnParameters": 29,
-                  "id": 31,
+                  "functionReturnParameters": 120,
+                  "id": 122,
                   "nodeType": "Return",
-                  "src": "401:15:1"
+                  "src": "2012:15:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 33,
+            "id": 124,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
-            "name": "getProjects",
+            "name": "getAddresses",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 24,
+              "id": 115,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "352:2:1"
+              "src": "1962:2:1"
             },
             "returnParameters": {
-              "id": 29,
+              "id": 120,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 28,
+                  "id": 119,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 33,
-                  "src": "376:17:1",
+                  "scope": 124,
+                  "src": "1986:18:1",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_address_$4_memory_ptr",
-                    "typeString": "address[4]"
+                    "typeIdentifier": "t_array$_t_address_$10_memory_ptr",
+                    "typeString": "address[10]"
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 25,
+                      "id": 116,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
-                      "src": "376:7:1",
+                      "src": "1986:7:1",
                       "stateMutability": "nonpayable",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "id": 27,
+                    "id": 118,
                     "length": {
                       "argumentTypes": null,
-                      "hexValue": "34",
-                      "id": 26,
+                      "hexValue": "3130",
+                      "id": 117,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "384:1:1",
+                      "src": "1994:2:1",
                       "subdenomination": null,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_rational_4_by_1",
-                        "typeString": "int_const 4"
+                        "typeIdentifier": "t_rational_10_by_1",
+                        "typeString": "int_const 10"
                       },
-                      "value": "4"
+                      "value": "10"
                     },
                     "nodeType": "ArrayTypeName",
-                    "src": "376:10:1",
+                    "src": "1986:11:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_address_$4_storage_ptr",
-                      "typeString": "address[4]"
+                      "typeIdentifier": "t_array$_t_address_$10_storage_ptr",
+                      "typeString": "address[10]"
                     }
                   },
                   "value": null,
                   "visibility": "internal"
                 }
               ],
-              "src": "375:19:1"
+              "src": "1985:20:1"
             },
-            "scope": 34,
-            "src": "332:89:1",
+            "scope": 134,
+            "src": "1941:91:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 132,
+              "nodeType": "Block",
+              "src": "2096:23:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 130,
+                    "name": "parts",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 7,
+                    "src": "2109:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Parts_$51_storage_$dyn_storage",
+                      "typeString": "struct ProjectOffice.Parts storage ref[] storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 129,
+                  "id": 131,
+                  "nodeType": "Return",
+                  "src": "2102:12:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 133,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getProjects",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 125,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2056:2:1"
+            },
+            "returnParameters": {
+              "id": 129,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 128,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 133,
+                  "src": "2080:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Parts_$51_memory_$dyn_memory_ptr",
+                    "typeString": "struct ProjectOffice.Parts[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "contractScope": null,
+                      "id": 126,
+                      "name": "Parts",
+                      "nodeType": "UserDefinedTypeName",
+                      "referencedDeclaration": 51,
+                      "src": "2080:5:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Parts_$51_storage_ptr",
+                        "typeString": "struct ProjectOffice.Parts"
+                      }
+                    },
+                    "id": 127,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "2080:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Parts_$51_storage_$dyn_storage_ptr",
+                      "typeString": "struct ProjectOffice.Parts[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2079:16:1"
+            },
+            "scope": 134,
+            "src": "2036:83:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 35,
-        "src": "66:357:1"
+        "scope": 135,
+        "src": "100:2245:1"
       }
     ],
-    "src": "32:392:1"
+    "src": "32:2314:1"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "/home/scharles/week12/Rocket_Elevators_Blockchain/contracts/ProjectOffice.sol",
       "exportedSymbols": {
         "ProjectOffice": [
-          34
+          134
         ]
       }
     },
@@ -488,9 +1748,20 @@
             ".0"
           ]
         },
-        "id": 2,
+        "id": 3,
         "name": "PragmaDirective",
         "src": "32:32:1"
+      },
+      {
+        "attributes": {
+          "literals": [
+            "experimental",
+            "ABIEncoderV2"
+          ]
+        },
+        "id": 4,
+        "name": "PragmaDirective",
+        "src": "65:33:1"
       },
       {
         "attributes": {
@@ -504,27 +1775,66 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            34
+            134
           ],
           "name": "ProjectOffice",
-          "scope": 35
+          "scope": 135
         },
         "children": [
           {
             "attributes": {
               "constant": false,
-              "name": "projects",
-              "scope": 34,
+              "name": "parts",
+              "scope": 134,
               "stateVariable": true,
               "storageLocation": "default",
-              "type": "address[4]",
+              "type": "struct ProjectOffice.Parts[]",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "struct ProjectOffice.Parts[]"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Parts",
+                      "referencedDeclaration": 51,
+                      "type": "struct ProjectOffice.Parts"
+                    },
+                    "id": 5,
+                    "name": "UserDefinedTypeName",
+                    "src": "127:5:1"
+                  }
+                ],
+                "id": 6,
+                "name": "ArrayTypeName",
+                "src": "127:7:1"
+              }
+            ],
+            "id": 7,
+            "name": "VariableDeclaration",
+            "src": "127:13:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "projects",
+              "scope": 134,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "address[10]",
               "value": null,
               "visibility": "public"
             },
             "children": [
               {
                 "attributes": {
-                  "type": "address[4]"
+                  "type": "address[10]"
                 },
                 "children": [
                   {
@@ -533,36 +1843,36 @@
                       "stateMutability": "nonpayable",
                       "type": "address"
                     },
-                    "id": 3,
+                    "id": 8,
                     "name": "ElementaryTypeName",
-                    "src": "93:7:1"
+                    "src": "201:7:1"
                   },
                   {
                     "attributes": {
                       "argumentTypes": null,
-                      "hexvalue": "34",
+                      "hexvalue": "3130",
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "lValueRequested": false,
                       "subdenomination": null,
                       "token": "number",
-                      "type": "int_const 4",
-                      "value": "4"
+                      "type": "int_const 10",
+                      "value": "10"
                     },
-                    "id": 4,
+                    "id": 9,
                     "name": "Literal",
-                    "src": "101:1:1"
+                    "src": "209:2:1"
                   }
                 ],
-                "id": 5,
+                "id": 10,
                 "name": "ArrayTypeName",
-                "src": "93:10:1"
+                "src": "201:11:1"
               }
             ],
-            "id": 6,
+            "id": 11,
             "name": "VariableDeclaration",
-            "src": "93:26:1"
+            "src": "201:27:1"
           },
           {
             "attributes": {
@@ -573,8 +1883,8 @@
               "modifiers": [
                 null
               ],
-              "name": "project",
-              "scope": 34,
+              "name": "assign",
+              "scope": 134,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -586,7 +1896,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "projectId",
-                      "scope": 23,
+                      "scope": 38,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -599,19 +1909,19 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 7,
+                        "id": 12,
                         "name": "ElementaryTypeName",
-                        "src": "141:4:1"
+                        "src": "349:4:1"
                       }
                     ],
-                    "id": 8,
+                    "id": 13,
                     "name": "VariableDeclaration",
-                    "src": "141:14:1"
+                    "src": "349:14:1"
                   }
                 ],
-                "id": 9,
+                "id": 14,
                 "name": "ParameterList",
-                "src": "140:16:1"
+                "src": "348:16:1"
               },
               {
                 "children": [
@@ -619,7 +1929,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 23,
+                      "scope": 38,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -632,22 +1942,191 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 10,
+                        "id": 15,
                         "name": "ElementaryTypeName",
-                        "src": "173:4:1"
+                        "src": "381:4:1"
                       }
                     ],
-                    "id": 11,
+                    "id": 16,
                     "name": "VariableDeclaration",
-                    "src": "173:4:1"
+                    "src": "381:4:1"
                   }
                 ],
-                "id": 12,
+                "id": 17,
                 "name": "ParameterList",
-                "src": "172:6:1"
+                "src": "380:6:1"
               },
               {
                 "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                152,
+                                153
+                              ],
+                              "referencedDeclaration": 152,
+                              "type": "function (bool) pure",
+                              "value": "require"
+                            },
+                            "id": 18,
+                            "name": "Identifier",
+                            "src": "395:7:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "&&",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "commonType": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  },
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "operator": ">=",
+                                  "type": "bool"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 13,
+                                      "type": "uint256",
+                                      "value": "projectId"
+                                    },
+                                    "id": 19,
+                                    "name": "Identifier",
+                                    "src": "403:9:1"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "hexvalue": "30",
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "lValueRequested": false,
+                                      "subdenomination": null,
+                                      "token": "number",
+                                      "type": "int_const 0",
+                                      "value": "0"
+                                    },
+                                    "id": 20,
+                                    "name": "Literal",
+                                    "src": "416:1:1"
+                                  }
+                                ],
+                                "id": 21,
+                                "name": "BinaryOperation",
+                                "src": "403:14:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "commonType": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  },
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "operator": "<=",
+                                  "type": "bool"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 13,
+                                      "type": "uint256",
+                                      "value": "projectId"
+                                    },
+                                    "id": 22,
+                                    "name": "Identifier",
+                                    "src": "421:9:1"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "hexvalue": "39",
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "lValueRequested": false,
+                                      "subdenomination": null,
+                                      "token": "number",
+                                      "type": "int_const 9",
+                                      "value": "9"
+                                    },
+                                    "id": 23,
+                                    "name": "Literal",
+                                    "src": "434:1:1"
+                                  }
+                                ],
+                                "id": 24,
+                                "name": "BinaryOperation",
+                                "src": "421:14:1"
+                              }
+                            ],
+                            "id": 25,
+                            "name": "BinaryOperation",
+                            "src": "403:32:1"
+                          }
+                        ],
+                        "id": 26,
+                        "name": "FunctionCall",
+                        "src": "395:41:1"
+                      }
+                    ],
+                    "id": 27,
+                    "name": "ExpressionStatement",
+                    "src": "395:41:1"
+                  },
                   {
                     "children": [
                       {
@@ -677,13 +2156,13 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 6,
-                                  "type": "address[4] storage ref",
+                                  "referencedDeclaration": 11,
+                                  "type": "address[10] storage ref",
                                   "value": "projects"
                                 },
-                                "id": 13,
+                                "id": 28,
                                 "name": "Identifier",
-                                "src": "237:8:1"
+                                "src": "445:8:1"
                               },
                               {
                                 "attributes": {
@@ -691,18 +2170,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 8,
+                                  "referencedDeclaration": 13,
                                   "type": "uint256",
                                   "value": "projectId"
                                 },
-                                "id": 14,
+                                "id": 29,
                                 "name": "Identifier",
-                                "src": "246:9:1"
+                                "src": "454:9:1"
                               }
                             ],
-                            "id": 15,
+                            "id": 30,
                             "name": "IndexAccess",
-                            "src": "237:19:1"
+                            "src": "445:19:1"
                           },
                           {
                             "attributes": {
@@ -722,32 +2201,32 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 49,
+                                  "referencedDeclaration": 149,
                                   "type": "msg",
                                   "value": "msg"
                                 },
-                                "id": 16,
+                                "id": 31,
                                 "name": "Identifier",
-                                "src": "259:3:1"
+                                "src": "467:3:1"
                               }
                             ],
-                            "id": 17,
+                            "id": 32,
                             "name": "MemberAccess",
-                            "src": "259:10:1"
+                            "src": "467:10:1"
                           }
                         ],
-                        "id": 18,
+                        "id": 33,
                         "name": "Assignment",
-                        "src": "237:32:1"
+                        "src": "445:32:1"
                       }
                     ],
-                    "id": 19,
+                    "id": 34,
                     "name": "ExpressionStatement",
-                    "src": "237:32:1"
+                    "src": "445:32:1"
                   },
                   {
                     "attributes": {
-                      "functionReturnParameters": 12
+                      "functionReturnParameters": 17
                     },
                     "children": [
                       {
@@ -756,28 +2235,197 @@
                           "overloadedDeclarations": [
                             null
                           ],
-                          "referencedDeclaration": 8,
+                          "referencedDeclaration": 13,
                           "type": "uint256",
                           "value": "projectId"
                         },
-                        "id": 20,
+                        "id": 35,
                         "name": "Identifier",
-                        "src": "283:9:1"
+                        "src": "493:9:1"
                       }
                     ],
-                    "id": 21,
+                    "id": 36,
                     "name": "Return",
-                    "src": "276:16:1"
+                    "src": "486:16:1"
                   }
                 ],
-                "id": 22,
+                "id": 37,
                 "name": "Block",
-                "src": "179:118:1"
+                "src": "387:120:1"
               }
             ],
-            "id": 23,
+            "id": 38,
             "name": "FunctionDefinition",
-            "src": "124:173:1"
+            "src": "333:174:1"
+          },
+          {
+            "attributes": {
+              "canonicalName": "ProjectOffice.Parts",
+              "name": "Parts",
+              "scope": 134,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "Controllers",
+                  "scope": 51,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 39,
+                    "name": "ElementaryTypeName",
+                    "src": "530:7:1"
+                  }
+                ],
+                "id": 40,
+                "name": "VariableDeclaration",
+                "src": "530:19:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "Shafts",
+                  "scope": 51,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 41,
+                    "name": "ElementaryTypeName",
+                    "src": "555:7:1"
+                  }
+                ],
+                "id": 42,
+                "name": "VariableDeclaration",
+                "src": "555:14:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "Doors",
+                  "scope": 51,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 43,
+                    "name": "ElementaryTypeName",
+                    "src": "575:7:1"
+                  }
+                ],
+                "id": 44,
+                "name": "VariableDeclaration",
+                "src": "575:13:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "Buttons",
+                  "scope": 51,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 45,
+                    "name": "ElementaryTypeName",
+                    "src": "594:7:1"
+                  }
+                ],
+                "id": 46,
+                "name": "VariableDeclaration",
+                "src": "594:15:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "Displays",
+                  "scope": 51,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 47,
+                    "name": "ElementaryTypeName",
+                    "src": "615:7:1"
+                  }
+                ],
+                "id": 48,
+                "name": "VariableDeclaration",
+                "src": "615:16:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "Pulleys",
+                  "scope": 51,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 49,
+                    "name": "ElementaryTypeName",
+                    "src": "637:7:1"
+                  }
+                ],
+                "id": 50,
+                "name": "VariableDeclaration",
+                "src": "637:15:1"
+              }
+            ],
+            "id": 51,
+            "name": "StructDefinition",
+            "src": "511:146:1"
           },
           {
             "attributes": {
@@ -788,8 +2436,786 @@
               "modifiers": [
                 null
               ],
-              "name": "getProjects",
-              "scope": 34,
+              "name": "neededParts",
+              "scope": 134,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "Batteries",
+                      "scope": 114,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 52,
+                        "name": "ElementaryTypeName",
+                        "src": "1606:7:1"
+                      }
+                    ],
+                    "id": 53,
+                    "name": "VariableDeclaration",
+                    "src": "1606:17:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "Columns",
+                      "scope": 114,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 54,
+                        "name": "ElementaryTypeName",
+                        "src": "1625:7:1"
+                      }
+                    ],
+                    "id": 55,
+                    "name": "VariableDeclaration",
+                    "src": "1625:15:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "Elevators",
+                      "scope": 114,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 56,
+                        "name": "ElementaryTypeName",
+                        "src": "1642:7:1"
+                      }
+                    ],
+                    "id": 57,
+                    "name": "VariableDeclaration",
+                    "src": "1642:17:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "Floors",
+                      "scope": 114,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 58,
+                        "name": "ElementaryTypeName",
+                        "src": "1661:7:1"
+                      }
+                    ],
+                    "id": 59,
+                    "name": "VariableDeclaration",
+                    "src": "1661:14:1"
+                  }
+                ],
+                "id": 60,
+                "name": "ParameterList",
+                "src": "1605:71:1"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 61,
+                "name": "ParameterList",
+                "src": "1684:0:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        63
+                      ],
+                      "initialValue": null
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "p",
+                          "scope": 113,
+                          "stateVariable": false,
+                          "storageLocation": "memory",
+                          "type": "struct ProjectOffice.Parts",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "Parts",
+                              "referencedDeclaration": 51,
+                              "type": "struct ProjectOffice.Parts"
+                            },
+                            "id": 62,
+                            "name": "UserDefinedTypeName",
+                            "src": "1692:5:1"
+                          }
+                        ],
+                        "id": 63,
+                        "name": "VariableDeclaration",
+                        "src": "1692:14:1"
+                      }
+                    ],
+                    "id": 64,
+                    "name": "VariableDeclarationStatement",
+                    "src": "1692:14:1"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "Controllers",
+                              "referencedDeclaration": 40,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 63,
+                                  "type": "struct ProjectOffice.Parts memory",
+                                  "value": "p"
+                                },
+                                "id": 65,
+                                "name": "Identifier",
+                                "src": "1714:1:1"
+                              }
+                            ],
+                            "id": 67,
+                            "name": "MemberAccess",
+                            "src": "1714:13:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 53,
+                              "type": "uint256",
+                              "value": "Batteries"
+                            },
+                            "id": 68,
+                            "name": "Identifier",
+                            "src": "1730:9:1"
+                          }
+                        ],
+                        "id": 69,
+                        "name": "Assignment",
+                        "src": "1714:25:1"
+                      }
+                    ],
+                    "id": 70,
+                    "name": "ExpressionStatement",
+                    "src": "1714:25:1"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "Shafts",
+                              "referencedDeclaration": 42,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 63,
+                                  "type": "struct ProjectOffice.Parts memory",
+                                  "value": "p"
+                                },
+                                "id": 71,
+                                "name": "Identifier",
+                                "src": "1747:1:1"
+                              }
+                            ],
+                            "id": 73,
+                            "name": "MemberAccess",
+                            "src": "1747:8:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 57,
+                              "type": "uint256",
+                              "value": "Elevators"
+                            },
+                            "id": 74,
+                            "name": "Identifier",
+                            "src": "1758:9:1"
+                          }
+                        ],
+                        "id": 75,
+                        "name": "Assignment",
+                        "src": "1747:20:1"
+                      }
+                    ],
+                    "id": 76,
+                    "name": "ExpressionStatement",
+                    "src": "1747:20:1"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "Doors",
+                              "referencedDeclaration": 44,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 63,
+                                  "type": "struct ProjectOffice.Parts memory",
+                                  "value": "p"
+                                },
+                                "id": 77,
+                                "name": "Identifier",
+                                "src": "1775:1:1"
+                              }
+                            ],
+                            "id": 79,
+                            "name": "MemberAccess",
+                            "src": "1775:7:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "*",
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "commonType": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  },
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "operator": "*",
+                                  "type": "uint256"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 57,
+                                      "type": "uint256",
+                                      "value": "Elevators"
+                                    },
+                                    "id": 80,
+                                    "name": "Identifier",
+                                    "src": "1785:9:1"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 59,
+                                      "type": "uint256",
+                                      "value": "Floors"
+                                    },
+                                    "id": 81,
+                                    "name": "Identifier",
+                                    "src": "1797:6:1"
+                                  }
+                                ],
+                                "id": 82,
+                                "name": "BinaryOperation",
+                                "src": "1785:18:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 55,
+                                  "type": "uint256",
+                                  "value": "Columns"
+                                },
+                                "id": 83,
+                                "name": "Identifier",
+                                "src": "1806:7:1"
+                              }
+                            ],
+                            "id": 84,
+                            "name": "BinaryOperation",
+                            "src": "1785:28:1"
+                          }
+                        ],
+                        "id": 85,
+                        "name": "Assignment",
+                        "src": "1775:38:1"
+                      }
+                    ],
+                    "id": 86,
+                    "name": "ExpressionStatement",
+                    "src": "1775:38:1"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "Buttons",
+                              "referencedDeclaration": 46,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 63,
+                                  "type": "struct ProjectOffice.Parts memory",
+                                  "value": "p"
+                                },
+                                "id": 87,
+                                "name": "Identifier",
+                                "src": "1821:1:1"
+                              }
+                            ],
+                            "id": 89,
+                            "name": "MemberAccess",
+                            "src": "1821:9:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "*",
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 57,
+                                  "type": "uint256",
+                                  "value": "Elevators"
+                                },
+                                "id": 90,
+                                "name": "Identifier",
+                                "src": "1833:9:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 59,
+                                  "type": "uint256",
+                                  "value": "Floors"
+                                },
+                                "id": 91,
+                                "name": "Identifier",
+                                "src": "1845:6:1"
+                              }
+                            ],
+                            "id": 92,
+                            "name": "BinaryOperation",
+                            "src": "1833:18:1"
+                          }
+                        ],
+                        "id": 93,
+                        "name": "Assignment",
+                        "src": "1821:30:1"
+                      }
+                    ],
+                    "id": 94,
+                    "name": "ExpressionStatement",
+                    "src": "1821:30:1"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "Displays",
+                              "referencedDeclaration": 48,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 63,
+                                  "type": "struct ProjectOffice.Parts memory",
+                                  "value": "p"
+                                },
+                                "id": 95,
+                                "name": "Identifier",
+                                "src": "1859:1:1"
+                              }
+                            ],
+                            "id": 97,
+                            "name": "MemberAccess",
+                            "src": "1859:10:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 57,
+                              "type": "uint256",
+                              "value": "Elevators"
+                            },
+                            "id": 98,
+                            "name": "Identifier",
+                            "src": "1872:9:1"
+                          }
+                        ],
+                        "id": 99,
+                        "name": "Assignment",
+                        "src": "1859:22:1"
+                      }
+                    ],
+                    "id": 100,
+                    "name": "ExpressionStatement",
+                    "src": "1859:22:1"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "Pulleys",
+                              "referencedDeclaration": 50,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 63,
+                                  "type": "struct ProjectOffice.Parts memory",
+                                  "value": "p"
+                                },
+                                "id": 101,
+                                "name": "Identifier",
+                                "src": "1889:1:1"
+                              }
+                            ],
+                            "id": 103,
+                            "name": "MemberAccess",
+                            "src": "1889:9:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 57,
+                              "type": "uint256",
+                              "value": "Elevators"
+                            },
+                            "id": 104,
+                            "name": "Identifier",
+                            "src": "1901:9:1"
+                          }
+                        ],
+                        "id": 105,
+                        "name": "Assignment",
+                        "src": "1889:21:1"
+                      }
+                    ],
+                    "id": 106,
+                    "name": "ExpressionStatement",
+                    "src": "1889:21:1"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "uint256",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_struct$_Parts_$51_memory_ptr",
+                                  "typeString": "struct ProjectOffice.Parts memory"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "push",
+                              "referencedDeclaration": null,
+                              "type": "function (struct ProjectOffice.Parts storage ref) returns (uint256)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 7,
+                                  "type": "struct ProjectOffice.Parts storage ref[] storage ref",
+                                  "value": "parts"
+                                },
+                                "id": 107,
+                                "name": "Identifier",
+                                "src": "1919:5:1"
+                              }
+                            ],
+                            "id": 109,
+                            "name": "MemberAccess",
+                            "src": "1919:10:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 63,
+                              "type": "struct ProjectOffice.Parts memory",
+                              "value": "p"
+                            },
+                            "id": 110,
+                            "name": "Identifier",
+                            "src": "1930:1:1"
+                          }
+                        ],
+                        "id": 111,
+                        "name": "FunctionCall",
+                        "src": "1919:13:1"
+                      }
+                    ],
+                    "id": 112,
+                    "name": "ExpressionStatement",
+                    "src": "1919:13:1"
+                  }
+                ],
+                "id": 113,
+                "name": "Block",
+                "src": "1684:253:1"
+              }
+            ],
+            "id": 114,
+            "name": "FunctionDefinition",
+            "src": "1585:352:1"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "getAddresses",
+              "scope": 134,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -802,9 +3228,9 @@
                   ]
                 },
                 "children": [],
-                "id": 24,
+                "id": 115,
                 "name": "ParameterList",
-                "src": "352:2:1"
+                "src": "1962:2:1"
               },
               {
                 "children": [
@@ -812,17 +3238,17 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 33,
+                      "scope": 124,
                       "stateVariable": false,
                       "storageLocation": "memory",
-                      "type": "address[4]",
+                      "type": "address[10]",
                       "value": null,
                       "visibility": "internal"
                     },
                     "children": [
                       {
                         "attributes": {
-                          "type": "address[4]"
+                          "type": "address[10]"
                         },
                         "children": [
                           {
@@ -831,47 +3257,47 @@
                               "stateMutability": "nonpayable",
                               "type": "address"
                             },
-                            "id": 25,
+                            "id": 116,
                             "name": "ElementaryTypeName",
-                            "src": "376:7:1"
+                            "src": "1986:7:1"
                           },
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "hexvalue": "34",
+                              "hexvalue": "3130",
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
                               "lValueRequested": false,
                               "subdenomination": null,
                               "token": "number",
-                              "type": "int_const 4",
-                              "value": "4"
+                              "type": "int_const 10",
+                              "value": "10"
                             },
-                            "id": 26,
+                            "id": 117,
                             "name": "Literal",
-                            "src": "384:1:1"
+                            "src": "1994:2:1"
                           }
                         ],
-                        "id": 27,
+                        "id": 118,
                         "name": "ArrayTypeName",
-                        "src": "376:10:1"
+                        "src": "1986:11:1"
                       }
                     ],
-                    "id": 28,
+                    "id": 119,
                     "name": "VariableDeclaration",
-                    "src": "376:17:1"
+                    "src": "1986:18:1"
                   }
                 ],
-                "id": 29,
+                "id": 120,
                 "name": "ParameterList",
-                "src": "375:19:1"
+                "src": "1985:20:1"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 29
+                      "functionReturnParameters": 120
                     },
                     "children": [
                       {
@@ -880,38 +3306,147 @@
                           "overloadedDeclarations": [
                             null
                           ],
-                          "referencedDeclaration": 6,
-                          "type": "address[4] storage ref",
+                          "referencedDeclaration": 11,
+                          "type": "address[10] storage ref",
                           "value": "projects"
                         },
-                        "id": 30,
+                        "id": 121,
                         "name": "Identifier",
-                        "src": "408:8:1"
+                        "src": "2019:8:1"
                       }
                     ],
-                    "id": 31,
+                    "id": 122,
                     "name": "Return",
-                    "src": "401:15:1"
+                    "src": "2012:15:1"
                   }
                 ],
-                "id": 32,
+                "id": 123,
                 "name": "Block",
-                "src": "395:26:1"
+                "src": "2006:26:1"
               }
             ],
-            "id": 33,
+            "id": 124,
             "name": "FunctionDefinition",
-            "src": "332:89:1"
+            "src": "1941:91:1"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "getProjects",
+              "scope": 134,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 125,
+                "name": "ParameterList",
+                "src": "2056:2:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 133,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "struct ProjectOffice.Parts[]",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "length": null,
+                          "type": "struct ProjectOffice.Parts[]"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "Parts",
+                              "referencedDeclaration": 51,
+                              "type": "struct ProjectOffice.Parts"
+                            },
+                            "id": 126,
+                            "name": "UserDefinedTypeName",
+                            "src": "2080:5:1"
+                          }
+                        ],
+                        "id": 127,
+                        "name": "ArrayTypeName",
+                        "src": "2080:7:1"
+                      }
+                    ],
+                    "id": 128,
+                    "name": "VariableDeclaration",
+                    "src": "2080:14:1"
+                  }
+                ],
+                "id": 129,
+                "name": "ParameterList",
+                "src": "2079:16:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 129
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 7,
+                          "type": "struct ProjectOffice.Parts storage ref[] storage ref",
+                          "value": "parts"
+                        },
+                        "id": 130,
+                        "name": "Identifier",
+                        "src": "2109:5:1"
+                      }
+                    ],
+                    "id": 131,
+                    "name": "Return",
+                    "src": "2102:12:1"
+                  }
+                ],
+                "id": 132,
+                "name": "Block",
+                "src": "2096:23:1"
+              }
+            ],
+            "id": 133,
+            "name": "FunctionDefinition",
+            "src": "2036:83:1"
           }
         ],
-        "id": 34,
+        "id": 134,
         "name": "ContractDefinition",
-        "src": "66:357:1"
+        "src": "100:2245:1"
       }
     ],
-    "id": 35,
+    "id": 135,
     "name": "SourceUnit",
-    "src": "32:392:1"
+    "src": "32:2314:1"
   },
   "compiler": {
     "name": "solc",
@@ -929,10 +3464,40 @@
       "links": {},
       "address": "0x82bDD24D0919d71A9f0D9c2d78421b0206BFd4b9",
       "transactionHash": "0xeae875ea998888b8a5d4d71ecd4f386eba2d9f177f579e47a7fe2bed906161b9"
+    },
+    "1618407969307": {
+      "events": {},
+      "links": {},
+      "address": "0xfAB4027d5e59A168d0023e395105Af40AfBAc59d",
+      "transactionHash": "0x44ba0db21ad6997b4863f63a26d1c99b1b598539fb1012b6532dbd6fa602f06a"
+    },
+    "1618408744745": {
+      "events": {},
+      "links": {},
+      "address": "0x9Ca78f447Da36551266a994aE638ec8A0F4880Cd",
+      "transactionHash": "0x7170c49c84b5fec3c9357ba85aca5f9618a16d6190c633c045410bf5199e2fe6"
+    },
+    "1618409004129": {
+      "events": {},
+      "links": {},
+      "address": "0x496c51CC2420feCbc7c1BF91C16D191a134FA208",
+      "transactionHash": "0x67ef956ed8d33dd2730cec854d05266fd51ad33c59c502ea46afc5cba8bf76fc"
+    },
+    "1618425873516": {
+      "events": {},
+      "links": {},
+      "address": "0x319b4f7AFfC0012618c6D70C8954371cB223aF94",
+      "transactionHash": "0x4395520f4ee5c6e6a4a41a09c3386f681c10732c24798cbaccc304a939376412"
+    },
+    "1618434878146": {
+      "events": {},
+      "links": {},
+      "address": "0xDc6E09C34e3FD682698Dc3469d53fE93ca759F58",
+      "transactionHash": "0x13720e46619212deb16705c4ab1e7f2cbd87b25029e96dbb79a243884889577c"
     }
   },
   "schemaVersion": "3.3.4",
-  "updatedAt": "2021-04-14T02:17:48.892Z",
+  "updatedAt": "2021-04-14T21:14:49.053Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
