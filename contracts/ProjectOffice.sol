@@ -29,15 +29,15 @@ contract ProjectOffice {
 
   // event DataStored(uint256 Controllers);
 
-  //  modifier isOwner() {
-  //        // If the first argument of 'require' evaluates to 'false', execution terminates and all
-  //        // changes to the state and to Ether balances are reverted.
-  //        // This used to consume all gas in old EVM versions, but not anymore.
-  //        // It is often a good idea to use 'require' to check if functions are called correctly.
-  //        // As a second argument, you can also provide an explanation about what went wrong.
-  //        require(msg.sender == owner, "Caller is not owner");
-  //        _;
-  //  }
+   modifier isOwner() {
+         // If the first argument of 'require' evaluates to 'false', execution terminates and all
+         // changes to the state and to Ether balances are reverted.
+         // This used to consume all gas in old EVM versions, but not anymore.
+         // It is often a good idea to use 'require' to check if functions are called correctly.
+         // As a second argument, you can also provide an explanation about what went wrong.
+         require(msg.sender == owner, "Caller is not owner");
+         _;
+   }
 
    constructor() {
        owner = msg.sender; // 'msg.sender' is sender of current call, contract deployer for a constructor
@@ -49,7 +49,7 @@ contract ProjectOffice {
   //       owner = newOwner;
   // }
 
-  function neededParts(uint256 Batteries, uint256 Columns, uint256 Elevators, uint256 Floors) public {
+  function neededParts(uint256 Batteries, uint256 Columns, uint256 Elevators, uint256 Floors) public isOwner {
       Parts memory p;
       p.Controllers = Batteries;
       p.Shafts = Elevators;
