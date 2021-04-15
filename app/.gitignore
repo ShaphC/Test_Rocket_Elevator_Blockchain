@@ -11,8 +11,11 @@
 # production
 /build
 
+<<<<<<< HEAD
 /src/artifacts
 
+=======
+>>>>>>> main
 # misc
 .DS_Store
 .env.local
