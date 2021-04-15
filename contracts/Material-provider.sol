@@ -2,13 +2,12 @@ pragma solidity >=0.4.22 <0.9.0;
 
 //like a javascript class
 contract Material {
-    string public material;
-    uint public age;
-    
-    // Constructor   
-    //    function Material() public {
-        
-    //    }
+   
+
+    struct materialObj {
+        string Material;
+        int reqAmount;
+    }
 
 
 
