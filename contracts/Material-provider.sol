@@ -1,15 +1,34 @@
 pragma solidity >=0.4.22 <0.9.0;
+import "./ProjectOffice.sol";
 
-//like a javascript class
 contract Material {
-    string public material;
-    uint public age;
     
-    // Constructor   
-    //    function Material() public {
-        
-    //    }
+    //Implies that the address being used to deploy is the owner
+    address owner;
 
+    //Creates a modifier that can be added unto a function to make it owner-only accessible
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+        _;
+    }
+
+    //Lets us declare the owner var
+    constructor() {
+        owner = msg.sender;
+    }
+
+    //My Material object
+    struct materialObj {
+        string Material;
+        int reqAmount;
+    }
+
+
+    //Reading data from another smart contract
+
+    //Running calculations on the type and amount of materials needed for THIS request
+
+    //Mapping-array to store all the materials in a list
 
 
 
