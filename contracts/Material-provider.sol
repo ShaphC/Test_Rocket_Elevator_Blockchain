@@ -2,7 +2,7 @@ pragma solidity >=0.4.22 <0.9.0;
 import "./ProjectOffice.sol";
 
 contract Material {
-    
+
     //Implies that the address being used to deploy is the owner
     address owner;
 
@@ -16,11 +16,12 @@ contract Material {
     constructor() {
         owner = msg.sender;
     }
-
+    //-------------------------------------------------------------------------------------------------
+    
     //My Material object
     struct materialObj {
-        string Material;
-        int reqAmount;
+        string _material;
+        uint _reqAmount;
     }
 
 
@@ -28,8 +29,12 @@ contract Material {
 
     //Running calculations on the type and amount of materials needed for THIS request
 
-    //Mapping-array to store all the materials in a list
+    //Array to store all the materials in a list and function to push it
+    materialObj[] public materialList;
 
+    function pushMaterial(string memory _material, uint _reqAmount) private{
+        
+    }
 
 
    // Types of variables
