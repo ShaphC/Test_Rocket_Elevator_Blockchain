@@ -1,8 +1,43 @@
+// SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
+import "./ProjectOffice.sol";
 
-//like a javascript class
 contract Material {
-   
+
+    //Implies that the address being used to deploy is the owner
+    address owner;
+
+    //Creates a modifier that can be added unto a function to make it owner-only accessible
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+        _;
+    }
+
+    //Lets us declare the owner var
+    constructor() {
+        owner = msg.sender;
+    }
+    //-------------------------------------------------------------------------------------------------
+    
+    //My Material object
+    struct materialObj {
+        string _material;
+        uint64 _reqAmount;
+    }
+
+    materialObj matStruct;
+
+    Reading data from another smart contract
+    function getProjectOfficeData() public {
+        ProjectOffice.getProjects();
+        return;
+    }
+
+    //Running calculations on the type and amount of materials needed for THIS request
+
+    //Array to store all the materials in a list and function to push it
+    materialObj[] public materialList;
+
 
     struct materialObj {
         string Material;
@@ -10,6 +45,9 @@ contract Material {
     }
 
 
+    function pushMaterial(string memory _material, uint64 _reqAmount) private{
+
+    }
 
 
    // Types of variables
