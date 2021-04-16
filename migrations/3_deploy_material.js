@@ -1,4 +1,4 @@
-var Material = artifacts.require("Material-provider");
+const Material = artifacts.require("MaterialProvider");
 
 module.exports = function(deployer) {
   deployer.deploy(Material);

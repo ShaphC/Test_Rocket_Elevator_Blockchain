@@ -122,7 +122,7 @@ contract SolutionManufacturing {
     uint private index = 0;
    
     function getOrder(address a) public {
-        Material.materialObj[] memory m = Material(a).getMaterial();
+        MaterialProvider.materialObj[] memory m = MaterialProvider(a).getMaterial();
         
         for(index; index<m.length;index++){
             materials[m[index].material] = m[index].reqAmount;

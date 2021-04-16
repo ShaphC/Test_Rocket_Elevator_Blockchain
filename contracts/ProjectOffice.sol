@@ -6,6 +6,7 @@ contract ProjectOffice {
   Parts[] parts;
   address public owner;
   // mapping(address => Projects) public projects;
+  address[10] public projects;
 
   // event for EVM logging
   event OwnerSet(address indexed oldOwner, address indexed newOwner);
@@ -18,6 +19,13 @@ contract ProjectOffice {
   //     return projectId;
   // }
 
+  uint256 Controllers;
+  uint256 Shafts;
+  uint256 Doors;
+  uint256 Buttons;
+  uint256 Displays;
+  uint256 Pulleys;
+
   struct Parts {
     uint256 Controllers;
     uint256 Shafts;
@@ -26,6 +34,7 @@ contract ProjectOffice {
     uint256 Displays;
     uint256 Pulleys;
   }
+
 
   // event DataStored(uint256 Controllers);
 
@@ -49,19 +58,32 @@ contract ProjectOffice {
   //       owner = newOwner;
   // }
 
-  function neededParts(uint256 Batteries, uint256 Columns, uint256 Elevators, uint256 Floors) public isOwner {
+  function neededParts(uint256 Batteries, uint256 Columns, uint256 Elevators, uint256 Floors) public {
       Parts memory p;
       p.Controllers = Batteries;
       p.Shafts = Elevators;
       p.Doors = Elevators * Floors;
       /*Multiples the elevator buttons by each floor and adds the buttons outside the elevator
       to the columns minus 1 up for the top floor and down for the first floor*/
-      p.Buttons = (Elevators * Floors) + ((Columns * 5) - 2);
+      p.Buttons = (Elevators * Floors) * Columns;
       p.Displays = Elevators;
       p.Pulleys = Elevators;
 
       parts.push(p);
   }
+
+  function returnParts(uint256 Batteries, uint256 Columns, uint256 Elevators, uint256 Floors) public {
+    Controllers = Batteries;
+    Shafts = Elevators;
+    Doors = Elevators * Floors;
+    /*Multiples the elevator buttons by each floor and adds the buttons outside the elevator
+    to the columns minus 1 up for the top floor and down for the first floor*/
+    Buttons = (Elevators * Floors) * Columns;
+    Displays = Elevators;
+    Pulleys = Elevators;
+
+  }
+
 
   // function getAddresses() public view returns (address[10] memory) {
   //   return projects;
@@ -69,5 +91,9 @@ contract ProjectOffice {
 
   function getProjects() public view returns (Parts[] memory) {
     return parts;
+  }
+
+  function projectResult() public view returns (uint256, uint256, uint256, uint256, uint256, uint256) {
+    return (Controllers, Shafts, Doors, Buttons, Displays, Pulleys);
   }
 }
