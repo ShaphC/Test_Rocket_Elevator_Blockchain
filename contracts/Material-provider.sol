@@ -26,9 +26,6 @@ contract Material {
 
     //Array to store all the materials in a list and function to push it
 
-    function pushMaterial(string memory _material, uint _reqAmount) private{
-        
-    }
 
 
 

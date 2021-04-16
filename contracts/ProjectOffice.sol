@@ -39,7 +39,7 @@ contract ProjectOffice {
          _;
    }
 
-   constructor() {
+   constructor() public {
        owner = msg.sender; // 'msg.sender' is sender of current call, contract deployer for a constructor
        emit OwnerSet(address(0), owner);
    }
@@ -54,6 +54,8 @@ contract ProjectOffice {
       p.Controllers = Batteries;
       p.Shafts = Elevators;
       p.Doors = Elevators * Floors;
+      /*Multiples the elevator buttons by each floor and adds the buttons outside the elevator
+      to the columns minus 1 up for the top floor and down for the first floor*/
       p.Buttons = (Elevators * Floors) + ((Columns * 5) - 2);
       p.Displays = Elevators;
       p.Pulleys = Elevators;
@@ -68,4 +70,8 @@ contract ProjectOffice {
   function getProjects() public view returns (Parts[] memory) {
     return parts;
   }
+
+  // function getProjects() public view returns (uint256 Controllers, uint256 Shafts, uint256 Doors, uint256 Buttons, uint256 Displays, uint256 Pulleys) {
+  //   return (Controllers);
+  // }
 }
