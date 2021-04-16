@@ -2,7 +2,7 @@ if (typeof web3 !== 'undefined') {
     web3 = new Web3(web3.currentProvider);
 } else {
     // set the provider you want from Web3.providers
-    web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/39e77057ebbe4eb2a734b1952a340e1f"));
+    web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
 }
 
 web3.eth.defaultAccount = web3.eth.accounts[0];
@@ -165,7 +165,9 @@ var ProjectOfficeContract = web3.eth.contract([
 	}
 ]);
 
-var ProjectOffice = ProjectOfficeContract.at('0x39C294A92B591e79A7be7B394DFa65C9123641dF');
+var projectOfficeAddress = '0xea5f496E8948b802CFae6BBf1055d02E216f6595'
+
+var ProjectOffice = ProjectOfficeContract.at(projectOfficeAddress);
 console.log(ProjectOffice);
 
 ProjectOffice.getProjects(function(error, result){
@@ -177,6 +179,15 @@ ProjectOffice.getProjects(function(error, result){
     else
         console.error(error);
 });
-$("#button").click(function() {
+$("#project-office-button").click(function() {
     ProjectOffice.neededParts($("#battery").val(), $("#column").val(), $("#elevator").val(), $("#floor").val());
+
+	var data = {}
+	var address = projectOfficeAddress
+	$.ajax({
+		type: 'POST',
+		headers: {'content-type': 'application/json', 'accept': '*/*', 'Access-Control-Allow-Origin': '*'},
+		url: 'https://rest-api-burroughs.herokuapp.com/api/blockchain/project-office/' + address,
+		data: JSON.stringify(data)
+	})
 });
