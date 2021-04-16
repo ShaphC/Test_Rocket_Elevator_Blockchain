@@ -38,6 +38,13 @@ contract Material {
     //Array to store all the materials in a list and function to push it
     materialObj[] public materialList;
 
+
+    struct materialObj {
+        string Material;
+        int reqAmount;
+    }
+
+
     function pushMaterial(string memory _material, uint64 _reqAmount) private{
 
     }
