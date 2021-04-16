@@ -3,7 +3,7 @@
 Members:
 1. Ahsan Ali Syed
 2. Don D. Nyguen 
-3. Kealen Burroughs
+3. Kaelen Burroughs
 4. Olaolu Adetula
 5. Timothy Wever
 6. Shphan Charles
