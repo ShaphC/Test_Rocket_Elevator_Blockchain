@@ -1,0 +1,53 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+<<<<<<< HEAD:.gitignore
+=======
+/app/node_modules
+/node_modules
+>>>>>>> main:.gitignore
+/.pnp
+.pnp.js
+
+#app2 files
+/app2/node_modules
+/app2/package-lock.json
+/app2/package.json
+
+#coursetro-eth
+/coursetro-eth/node_modules
+/coursetro-eth/npm
+/coursetro-eth/package-lock.json
+/coursetro-eth/package.json
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+<<<<<<< HEAD:.gitignore
+/node_modules
+
+/package-lock.json
+
+/truffle-config.js
+=======
+# JSON files
+package-lock.json
+package.json
+/app/package-lock.json
+/app/package.json
+
+>>>>>>> main:.gitignore

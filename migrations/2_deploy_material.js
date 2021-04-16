@@ -1,4 +1,4 @@
-var Material = artifacts.require("/contracts/Material-provider.sol");
+var Material = artifacts.require("MaterialProvider");
 
 module.exports = function(deployer) {
   deployer.deploy(Material);
