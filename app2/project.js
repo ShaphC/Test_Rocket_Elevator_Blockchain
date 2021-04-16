@@ -203,7 +203,6 @@ $("#project-office-button").click(function() {
 
 $("#material-provider-button").click(function() {
 
-	var data = {}
 	var address = materialProviderAddress
 	$.ajax({
 		type: 'POST',
@@ -216,7 +215,6 @@ $("#material-provider-button").click(function() {
 
 $("#solution-manufacturing-button").click(function() {
 
-	var data = {}
 	var address = solutionManufacturingAddress
 	$.ajax({
 		type: 'POST',
@@ -228,7 +226,7 @@ $("#solution-manufacturing-button").click(function() {
 
 
 $("#quality-button").click(function() {
-	var data = {}
+	
 	var address = qualityAddress
 	$.ajax({
 		type: 'POST',
