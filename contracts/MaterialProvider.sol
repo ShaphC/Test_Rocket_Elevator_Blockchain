@@ -8,7 +8,7 @@ contract Material {
     //My Material object
     struct materialObj {
         string material;
-        uint64 reqAmount;
+        uint256 reqAmount;
     }
 
 
@@ -18,7 +18,7 @@ contract Material {
 
 
     //Function that will be displayed in remix
-    function pushMaterial(string memory material, uint64 reqAmount) private{
+    function pushMaterial(string memory material, uint256 reqAmount) private{
         matStruct.material = material;
         matStruct.reqAmount = reqAmount;
         materialList.push(matStruct);
@@ -46,16 +46,14 @@ contract Material {
     function calcMaterial(address a) public 
     {
         ProjectOffice.Parts[] memory parts = ProjectOffice(a).getProjects();
-            
-        pushMaterial(aluminumBar, (parts[index].Shafts *10)); 
-        pushMaterial(stainlessSheet, (parts[index].Shafts *12));
-        pushMaterial(steelCable, (parts[index].Controllers *2)); 
-        pushMaterial(hardware, (parts[index].Controllers *3));
-        pushMaterial(interior, (parts[index].Doors *4));
-        pushMaterial(display, (parts[index].Doors *1));
-
+        for(index;index<parts.length;index++) {  
+            pushMaterial(aluminumBar, (parts[index].Shafts *10)); 
+            pushMaterial(stainlessSheet, (parts[index].Shafts *12));
+            pushMaterial(steelCable, (parts[index].Controllers *2)); 
+            pushMaterial(hardware, (parts[index].Controllers *3));
+            pushMaterial(interior, (parts[index].Doors *4));
+            pushMaterial(display, (parts[index].Doors *1));
+        }
     }
     
-
-
 }
