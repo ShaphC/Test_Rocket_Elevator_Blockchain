@@ -36,7 +36,7 @@ Coaches:
 
 # Web Application
 
-
+All buttons in the web app are set to call an endpoint in the API specific to the form they are a part of that submits the name of the contract, and the contract address.
 
 # New Database Table
 
