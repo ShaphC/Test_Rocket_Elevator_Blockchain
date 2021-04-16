@@ -13,7 +13,7 @@ contract Material {
 
 
     //Array to store all the materials in a list and that list saved in a variable
-    materialObj[] private materialList;
+    materialObj[] public materialList;
     materialObj matStruct;
 
 
@@ -38,7 +38,8 @@ contract Material {
     string hardware ="Hardware";
     string interior ="Interior";
     string display ="LED Displays";
-
+    string wire = "Wire";
+    string plastic = "Plastic";
 
     uint64 private index = 0;
 
@@ -53,7 +54,8 @@ contract Material {
             pushMaterial(hardware, (parts[index].Controllers *3));
             pushMaterial(interior, (parts[index].Doors *4));
             pushMaterial(display, (parts[index].Doors *1));
+            pushMaterial(wire, (parts[index].Pulleys *2));
+            pushMaterial(plastic, (parts[index].Buttons *2));
         }
     }
-    
 }
