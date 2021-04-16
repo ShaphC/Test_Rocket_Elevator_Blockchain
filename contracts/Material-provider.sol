@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 import "./ProjectOffice.sol";
 
@@ -21,19 +22,24 @@ contract Material {
     //My Material object
     struct materialObj {
         string _material;
-        uint _reqAmount;
+        uint64 _reqAmount;
     }
 
+    materialObj matStruct;
 
-    //Reading data from another smart contract
+    Reading data from another smart contract
+    function getProjectOfficeData() public {
+        ProjectOffice.getProjects();
+        return;
+    }
 
     //Running calculations on the type and amount of materials needed for THIS request
 
     //Array to store all the materials in a list and function to push it
     materialObj[] public materialList;
 
-    function pushMaterial(string memory _material, uint _reqAmount) private{
-        
+    function pushMaterial(string memory _material, uint64 _reqAmount) private{
+
     }
 
 
