@@ -1,5 +1,6 @@
 //SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
+pragma experimental ABIEncoderV2;
 import "./MaterialProvider.sol";
 
 contract SolutionManufacturing {
@@ -7,7 +8,7 @@ contract SolutionManufacturing {
     mapping (string => uint256) public materials;
 
     struct ProductObj {
-        uint256 Name;
+        string Name;
         uint256 Quantity;
     }
 
@@ -64,7 +65,7 @@ contract SolutionManufacturing {
             return 0;
         }
         
-        Door memory door = Door(1, 100, 1);
+        Door memory door = Door(1, 100);
         numOfDoors = materials["stainlessSheet"];
         productStruct.Name = "Doors";
         productList.push(productStruct);
@@ -79,7 +80,7 @@ contract SolutionManufacturing {
             return 0;
         }
         
-        Controller memory controller = Controller(10, 15, 1);
+        Controller memory controller = Controller(10, 15);
         numOfControllers = materials["wire"];
         productStruct.Name = "Controllers";
         productList.push(productStruct);
@@ -109,7 +110,7 @@ contract SolutionManufacturing {
             return 0;
         }
         
-        CallSign memory callSign = CallSign(1, 100, 1, 4, 6);
+        CallSign memory callSign = CallSign(1, 100, 1);
         numOfCallSigns = materials["plastic"];
         productStruct.Name = "CallSigns";
         productList.push(productStruct);
@@ -121,10 +122,10 @@ contract SolutionManufacturing {
     uint private index = 0;
    
     function getOrder(address a) public {
-        MaterialProvider.materialObj[] memory m = MaterialProvider(a).getMaterial();
+        Material.materialObj[] memory m = Material(a).getMaterial();
         
         for(index; index<m.length;index++){
-            materials[m[index].material] = m[index].quantity;
+            materials[m[index].material] = m[index].reqAmount;
         }
         doors();
         controllers();
