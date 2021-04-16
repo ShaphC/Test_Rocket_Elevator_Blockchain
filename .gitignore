@@ -26,7 +26,6 @@ yarn-error.log*
 # JSON files
 package-lock.json
 package.json
-
-# JSON fiels in other folders
 /app/package-lock.json
 /app/package.json
+

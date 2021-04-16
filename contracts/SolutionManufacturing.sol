@@ -137,5 +137,6 @@ contract SolutionManufacturing {
     function viewOrder() public view returns (ProductObj[] memory) {
         return productList;
     }
-   
+  
 }
+
