@@ -5,7 +5,7 @@ import "./MaterialProvider.sol";
 
 contract SolutionManufacturing {
    
-    mapping (string => uint256) materials;
+    mapping (string => uint256) public materials;
 
     struct ProductObj {
         string Name;
@@ -137,5 +137,6 @@ contract SolutionManufacturing {
     function viewOrder() public view returns (ProductObj[] memory) {
         return productList;
     }
-   
+  
 }
+
