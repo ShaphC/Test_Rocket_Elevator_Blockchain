@@ -192,7 +192,13 @@ var ProjectOfficeContract = web3.eth.contract([
 	}
 ]);
 
-var ProjectOffice = ProjectOfficeContract.at('0x86327E0a18042aeb76B2B128643748Be9488D512');
+//Addresses of different contracts
+var projectOfficeAddress = '0xea5f496E8948b802CFae6BBf1055d02E216f6595'
+var materialProviderAddress = '0x8054856311FF149F384a04B5B46864CD667a0e3D'
+var solutionManufacturingAddress = 'Place address to be sent here'
+var qualityAddress = 'Place address to be sent here'
+
+var ProjectOffice = ProjectOfficeContract.at(projectOfficeAddress);
 console.log(ProjectOffice);
 
 ProjectOffice.projectResult(function(error, result){
@@ -204,6 +210,55 @@ ProjectOffice.projectResult(function(error, result){
     else
         console.error(error);
 });
-$("#button").click(function() {
-    ProjectOffice.returnParts($("#battery").val(), $("#column").val(), $("#elevator").val(), $("#floor").val());
+
+//Variable to get passed with API calls
+var data = {}
+
+$("#project-office-button").click(function() {
+    ProjectOffice.neededParts($("#battery").val(), $("#column").val(), $("#elevator").val(), $("#floor").val());
+
+	var address = projectOfficeAddress
+
+	$.ajax({
+		type: 'POST',
+		headers: {'content-type': 'application/json', 'accept': '*/*', 'Access-Control-Allow-Origin': '*'},
+		url: 'https://rest-api-burroughs.herokuapp.com/api/blockchain/project-office/' + address,
+		data: JSON.stringify(data)
+	})
+});
+
+
+$("#material-provider-button").click(function() {
+
+	var address = materialProviderAddress
+	$.ajax({
+		type: 'POST',
+		headers: {'content-type': 'application/json', 'accept': '*/*', 'Access-Control-Allow-Origin': '*'},
+		url: 'https://rest-api-burroughs.herokuapp.com/api/blockchain/material-provider/' + address,
+		data: JSON.stringify(data)
+	})
+});
+
+
+$("#solution-manufacturing-button").click(function() {
+
+	var address = solutionManufacturingAddress
+	$.ajax({
+		type: 'POST',
+		headers: {'content-type': 'application/json', 'accept': '*/*', 'Access-Control-Allow-Origin': '*'},
+		url: 'https://rest-api-burroughs.herokuapp.com/api/blockchain/solution-manufacturing/' + address,
+		data: JSON.stringify(data)
+	})
+});
+
+
+$("#quality-button").click(function() {
+	
+	var address = qualityAddress
+	$.ajax({
+		type: 'POST',
+		headers: {'content-type': 'application/json', 'accept': '*/*', 'Access-Control-Allow-Origin': '*'},
+		url: 'https://rest-api-burroughs.herokuapp.com/api/blockchain/quality-security/' + address,
+		data: JSON.stringify(data)
+	})
 });
