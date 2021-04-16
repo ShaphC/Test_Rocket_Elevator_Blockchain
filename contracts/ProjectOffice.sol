@@ -59,9 +59,9 @@ contract ProjectOffice {
       parts.push(p);
   }
 
-  function getAddresses() public view returns (address[10] memory) {
-    return projects;
-  }
+  // function getAddresses() public view returns (address[10] memory) {
+  //   return projects;
+  // }
 
   function getProjects() public view returns (Parts[] memory) {
     return parts;
