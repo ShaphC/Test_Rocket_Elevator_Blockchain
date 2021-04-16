@@ -70,8 +70,4 @@ contract ProjectOffice {
   function getProjects() public view returns (Parts[] memory) {
     return parts;
   }
-
-  // function getProjects() public view returns (uint256 Controllers, uint256 Shafts, uint256 Doors, uint256 Buttons, uint256 Displays, uint256 Pulleys) {
-  //   return (Controllers);
-  // }
 }
