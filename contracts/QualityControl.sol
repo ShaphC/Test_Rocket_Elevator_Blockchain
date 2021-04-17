@@ -13,7 +13,7 @@ contract QualityControl {
         //uint datetime // 1512220800
     }
 
-    struct Product{
+    struct ProductObj{
         string name;
         uint64 quantity;
         bool verified;
@@ -22,7 +22,7 @@ contract QualityControl {
     struct Verification{
         Permit certificate;
         Permit perm;
-        Product[] mList;
+        ProductObj[] mList;
     }
     //Product[] mList;
     Verification v;
@@ -40,12 +40,12 @@ contract QualityControl {
     function VerificationStamp(address a) public{
         v.certificate = generatePermit();
         v.perm = generatePermit();
-        SolutionManufacturing.Product[] memory products = SolutionManufacturing(a).viewOrder();
-        for(index;index<products.length;index++){
-            Product memory p;
+        SolutionManufacturing.ProductObj[] memory productList = SolutionManufacturing(a).viewOrder();
+        for(index;index<productList.length;index++){
+            productList memory p;
             p.verified = true;
-            p.name = products[index].Name;
-            p.quantity = products[index].Quantity;
+            p.name = productList[index].Name;
+            p.quantity = productList[index].Quantity;
             v.mList.push(p);
         }
     }
