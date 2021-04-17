@@ -227,6 +227,7 @@ $("#project-office-button").click(function() {
 	})
 });
 
+var MaterialContract = web3.eth.contract();
 
 $("#material-provider-button").click(function() {
 
@@ -240,6 +241,8 @@ $("#material-provider-button").click(function() {
 });
 
 
+var SolutionsContract = web3.eth.contract();
+
 $("#solution-manufacturing-button").click(function() {
 
 	var address = solutionManufacturingAddress
@@ -251,6 +254,8 @@ $("#solution-manufacturing-button").click(function() {
 	})
 });
 
+
+var QualtiyContract = web3.eth.contract();
 
 $("#quality-button").click(function() {
 	
