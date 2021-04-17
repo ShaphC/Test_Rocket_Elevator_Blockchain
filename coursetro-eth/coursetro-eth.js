@@ -47,7 +47,7 @@ $(document).ready(function() {
         }
     ]);
 
-    var Coursetro = CoursetroContract.at('0xfc0001A55edD72373817B32cc82Fcde0162A7004');
+    var Coursetro = CoursetroContract.at('0x35B390B181e222b865316b76a3926651F3629222');
     console.log(Coursetro);
 
     Coursetro.getInstructor(function(error, result){

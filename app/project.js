@@ -2,29 +2,29 @@ if (typeof web3 !== 'undefined') {
     web3 = new Web3(web3.currentProvider);
 } else {
     // set the provider you want from Web3.providers
-    web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
+    web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 }
 
 web3.eth.defaultAccount = web3.eth.accounts[0];
 
 var ProjectOfficeContract = web3.eth.contract([
 	{
-		"constant": false,
+		"constant": true,
 		"inputs": [
-			{
-				"name": "projectId",
-				"type": "uint256"
-			}
-		],
-		"name": "assign",
-		"outputs": [
 			{
 				"name": "",
 				"type": "uint256"
 			}
 		],
+		"name": "projects",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
 		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -54,36 +54,47 @@ var ProjectOfficeContract = web3.eth.contract([
 		"type": "function"
 	},
 	{
+		"constant": true,
 		"inputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
+		"name": "owner",
+		"outputs": [
 			{
-				"indexed": true,
-				"name": "oldOwner",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"name": "newOwner",
+				"name": "",
 				"type": "address"
 			}
 		],
-		"name": "OwnerSet",
-		"type": "event"
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "getAddresses",
+		"name": "projectResult",
 		"outputs": [
 			{
 				"name": "",
-				"type": "address[10]"
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
 			}
 		],
 		"payable": false,
@@ -131,37 +142,53 @@ var ProjectOfficeContract = web3.eth.contract([
 		"type": "function"
 	},
 	{
-		"constant": true,
-		"inputs": [],
-		"name": "owner",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
+		"constant": false,
 		"inputs": [
 			{
-				"name": "",
+				"name": "Batteries",
+				"type": "uint256"
+			},
+			{
+				"name": "Columns",
+				"type": "uint256"
+			},
+			{
+				"name": "Elevators",
+				"type": "uint256"
+			},
+			{
+				"name": "Floors",
 				"type": "uint256"
 			}
 		],
-		"name": "projects",
-		"outputs": [
+		"name": "returnParts",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
 			{
-				"name": "",
+				"indexed": true,
+				"name": "oldOwner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"name": "newOwner",
 				"type": "address"
 			}
 		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
+		"name": "OwnerSet",
+		"type": "event"
 	}
 ]);
 
@@ -174,10 +201,10 @@ var qualityAddress = 'Place address to be sent here'
 var ProjectOffice = ProjectOfficeContract.at(projectOfficeAddress);
 console.log(ProjectOffice);
 
-ProjectOffice.getProjects(function(error, result){
+ProjectOffice.projectResult(function(error, result){
     if(!error)
         {
-            $("#parts").html(result[0]);//(result[0]+' Controller(s) '+result[1]+' Shaft(s) '+result[2]+' Door(s)'+result[3]+'  '+result[4]+'  '+result[5]+' Pulley(ies)');
+            $("#parts").html(result[0]+' Controller(s), '+result[1]+' Shaft(s), '+result[2]+' Door(s),\n'+result[3]+' Button(s),'+result[4]+' Display(s), '+result[5]+' Pulley(ies)');
             console.log(result);
         }
     else
@@ -200,6 +227,7 @@ $("#project-office-button").click(function() {
 	})
 });
 
+var MaterialContract = web3.eth.contract();
 
 $("#material-provider-button").click(function() {
 
@@ -213,6 +241,8 @@ $("#material-provider-button").click(function() {
 });
 
 
+var SolutionsContract = web3.eth.contract();
+
 $("#solution-manufacturing-button").click(function() {
 
 	var address = solutionManufacturingAddress
@@ -224,6 +254,8 @@ $("#solution-manufacturing-button").click(function() {
 	})
 });
 
+
+var QualtiyContract = web3.eth.contract();
 
 $("#quality-button").click(function() {
 	
