@@ -1,5 +1,5 @@
 //SPDX-License-Identifier: MIT
-pragma solidity >=0.5.00 <0.9.0;
+pragma solidity >=0.4.22 <0.9.0;
 pragma experimental ABIEncoderV2;
 
 import './SolutionManufacturing.sol';
@@ -13,20 +13,20 @@ contract QualityControl {
         //uint datetime // 1512220800
     }
 
-    struct ProductObj{
+    struct Product{
         string name;
-        uint64 quantity;
+        uint256 quantity;
         bool verified;
     }
 
     struct Verification{
         Permit certificate;
         Permit perm;
-        ProductObj[] mList;
+        Product[] mList;
     }
     //Product[] mList;
     Verification v;
-    uint64 index = 0;
+    uint256 index = 0;
 
 
     function generatePermit() private view returns(Permit memory certificate){
@@ -42,7 +42,7 @@ contract QualityControl {
         v.perm = generatePermit();
         SolutionManufacturing.ProductObj[] memory productList = SolutionManufacturing(a).viewOrder();
         for(index;index<productList.length;index++){
-            productList memory p;
+            Product memory p;
             p.verified = true;
             p.name = productList[index].Name;
             p.quantity = productList[index].Quantity;
@@ -53,7 +53,5 @@ contract QualityControl {
     function getVerification() public view returns(Verification memory){
         return v;
     }
-
-
 
 }
