@@ -25,7 +25,6 @@ contract SolutionManufacturing {
     struct ControlPanel {
         uint256 wire;
         uint256 plastic;
-        uint256 buttons;
         uint256 hardware;
         uint256 display;
     }
@@ -38,83 +37,68 @@ contract SolutionManufacturing {
    
     ProductObj productStruct;
     ProductObj[] productList;
-
-    constructor() public {
-        materials["stainlessSheet"] = 0;
-        materials["hardware"] = 0;
-        materials["wire"] = 0;
-        materials["plastic"] = 0;
-        materials["buttons"] = 0;
-        materials["display"] = 0;
-    
-    }
     
     // Variables to clean things up
     uint noSheet = materials["stainlessSheet"];
     uint noHardware = materials["hardware"];
-    uint noSensor = materials["sensor"];
     uint noWire = materials["wire"];
     uint noPlastic = materials["plastic"];
-    uint noHarness = materials["harness"];
-    uint noButton = materials["buttons"];
     uint noLight = materials["display"];
 
     function doors() public returns(uint numOfDoors) {
-        // Error catch - If just one thing is missing (or zero), Product cannot be made...
-        if(noSheet == 0 || noHardware == 0 || noSensor == 0) {
-            return 0;
-        }
+        // Error catch - If just one thing is missing, Product cannot be made...
+        require(noSheet < 2 || noHardware < 2);
         
-        Door memory door = Door(1, 100);
-        numOfDoors = materials["stainlessSheet"];
+        Door memory door = Door(1, 1);
+        numOfDoors = materials["stainlessSheet"] /= door.stainlessSheet;
         productStruct.Name = "Doors";
+        productStruct.Quantity = numOfDoors;
         productList.push(productStruct);
-        
+        materials["stainlessSheet"] = 0;
         return numOfDoors;
-
     }
     
     function controllers() public returns(uint numOfControllers) {
         // Error catch - If just one thing is missing (or zero), Product cannot be made...
-        if(noWire == 0 || noPlastic == 0) {
+        if(noWire > 10 || noPlastic > 2) {
             return 0;
         }
         
         Controller memory controller = Controller(10, 15);
-        numOfControllers = materials["wire"];
+        numOfControllers = materials["wire"] /= controller.wire;
         productStruct.Name = "Controllers";
         productList.push(productStruct);
-        
+        materials["wire"] = 0;
         return numOfControllers;
 
     }
     
     function controlPanels() public returns(uint numOfControlPanels) {
         // Error catch - If just one thing is missing (or zero), Product cannot be made...
-        if(noWire == 0 || noPlastic == 0 || noButton == 0 || noHardware == 0 || noLight == 0) {
+        if(noWire >= 10 || noPlastic >= 20 || noHardware >= 100 || noLight >= 2) {
             return 0;
         }
         
-        ControlPanel memory controlPanel = ControlPanel(1, 100, 1, 4, 6);
-        numOfControlPanels = materials["plastic"];
+        ControlPanel memory controlPanel = ControlPanel(10, 20, 100, 2);
+        numOfControlPanels = materials["plastic"] /= controlPanel.plastic;
         productStruct.Name = "Controllers";
         productList.push(productStruct);
-        
+        materials["plastic"] = 0;
         return numOfControlPanels;
 
     }
     
     function callSigns() public returns(uint numOfCallSigns) {
         // Error catch - If just one thing is missing (or zero), Product cannot be made...
-        if(noWire == 0 || noHardware == 0 || noLight == 0) {
+        if(noWire >= 10 || noHardware >= 10 || noLight >= 2) {
             return 0;
         }
         
-        CallSign memory callSign = CallSign(1, 100, 1);
-        numOfCallSigns = materials["plastic"];
+        CallSign memory callSign = CallSign(10, 10, 2);
+        numOfCallSigns = materials["display"] /= callSign.display;
         productStruct.Name = "CallSigns";
         productList.push(productStruct);
-        
+        materials["display"] = 0;
         return numOfCallSigns;
 
     }
@@ -139,4 +123,3 @@ contract SolutionManufacturing {
     }
   
 }
-

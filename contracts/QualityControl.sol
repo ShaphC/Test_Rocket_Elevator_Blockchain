@@ -54,4 +54,8 @@ contract QualityControl {
         return v;
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 }
